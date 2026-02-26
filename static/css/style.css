@@ -644,7 +644,8 @@ body {
 
 .acc-bank {
     display: inline-block;
-    width: 60px;
+    width: 95px;
+    flex-shrink: 0;
     font-size: .7em;
     color: #aaa;
     font-weight: 300;
