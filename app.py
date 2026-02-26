@@ -8,8 +8,7 @@ app = Flask(__name__)
 # ==========================================
 
 # 1. 카카오맵 API 키 (카카오 개발자 센터에서 발급 필요)
-# KAKAO_MAP_API_KEY = '2944d204a72efd86b8d0d2ed7fe5bea3' # 프롬투데이 느낌을 위해 키는 꼭 넣어주세요!
-KAKAO_MAP_API_KEY = 'REPLACE_KAKAO_MAP_API_KEY' # 프롬투데이 느낌을 위해 키는 꼭 넣어주세요!
+KAKAO_MAP_API_KEY = '{KAKAO_MAP_API_KEY}' # 프롬투데이 느낌을 위해 키는 꼭 넣어주세요!
 
 # 2. 예식장 좌표 (구글맵이나 카카오맵에서 확인한 위도, 경도)
 WEDDING_LAT = 37.508628

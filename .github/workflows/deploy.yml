@@ -17,9 +17,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 1. Secret 값을 index.html에 적용
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install flask Frozen-Flask
+
       - name: Replace Secret
         run: |
+          sed -i "s/{KAKAO_MAP_API_KEY}/${{ secrets.KAKAO_MAP_API_KEY }}/g" app.py
           sed -i "s/{GROOM_NAME}/${{ secrets.GROOM_NAME }}/g" app.py
           sed -i "s/{BRIDE_NAME}/${{ secrets.BRIDE_NAME }}/g" app.py
           sed -i "s/{GROOM_GIVEN_NAME}/${{ secrets.GROOM_GIVEN_NAME }}/g" app.py
@@ -37,14 +46,14 @@ jobs:
           sed -i "s/{BRIDE_PARENT_ACCOUNT_NAME}/${{ secrets.BRIDE_PARENT_ACCOUNT_NAME }}/g" app.py
           sed -i "s/{BRIDE_PARENT_ACCOUNT}/${{ secrets.BRIDE_PARENT_ACCOUNT }}/g" app.py
 
+      - name: Freeze Flask App
+        run: python freeze.py
 
-      # 2. 수정된 파일을 배포용 데이터(Artifact)로 업로드
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'  # 현재 폴더 전체를 업로드
+          path: './build'
 
-      # 3. GitHub Pages 서버로 실제 배포 실행
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
