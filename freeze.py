@@ -1,6 +1,8 @@
 from flask_frozen import Freezer
 from app import app  # app.py에서 생성한 Flask 객체(app)를 가져옵니다.
 
+app.config['FREEZER_BASE_URL'] = 'https://sks3297.github.io/wedding-invitation/'
+
 freezer = Freezer(app)
 
 if __name__ == '__main__':
