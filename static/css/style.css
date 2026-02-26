@@ -627,32 +627,31 @@ body {
 }
 
 .acc-detail {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    column-gap: 8px;
+    row-gap: 2px;
     flex: 1;
     min-width: 0;
+    align-items: baseline;
 }
 
 .acc-info-line {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    flex-wrap: wrap;
+    display: contents;
 }
 
 .acc-bank {
-    display: inline-block;
-    width: 95px;
-    flex-shrink: 0;
+    grid-column: 1;
     font-size: .7em;
     color: #aaa;
     font-weight: 300;
     white-space: nowrap;
+    text-align: right;
+    /* Align bank name to the right column edge for a cleaner look */
 }
 
 .acc-num {
+    grid-column: 2;
     font-size: .85em;
     color: #555;
     font-weight: 400;
@@ -661,10 +660,10 @@ body {
 }
 
 .acc-who {
+    grid-column: 2;
     font-size: .78em;
     color: #888;
     font-weight: 300;
-    margin-top: 1px;
 }
 
 .copy-btn {
