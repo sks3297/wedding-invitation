@@ -29,10 +29,6 @@
             <source src="{{ url_for('static', filename='bgm/bgm.mp3') }}" type="audio/mpeg">
         </audio>
 
-        <!-- Hidden iframe for Autoplay Trick -->
-        <iframe src="{{ url_for('static', filename='bgm/silence.mp3') }}" allow="autoplay" style="display:none"
-            id="audio-iframe"></iframe>
-
         <script>
             window.addEventListener('DOMContentLoaded', function () {
                 var bgm = document.getElementById('main-bgm');
