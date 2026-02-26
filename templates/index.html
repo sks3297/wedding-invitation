@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta property="og:title" content="기성 & 해솔의 결혼식에 초대합니다">
+    <meta property="og:description" content="2026년 5월 2일, 저희의 시작을 함께해주세요.">
+    <meta property="og:image" content="statics/images/gallery_10.jpg">
+    <title>결혼합니다</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Nanum+Myeongjo:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- BGM Toggle Button -->
+        <button id="bgm-toggle-btn" class="bgm-toggle">
+            <i class="fas fa-play"></i>
+        </button>
+        <audio id="main-bgm" loop muted autoplay playsinline preload="auto">
+            <source src="{{ url_for('static', filename='bgm/bgm.mp3') }}" type="audio/mpeg">
+        </audio>
+
+        <!-- Hidden iframe for Autoplay Trick -->
+        <iframe src="{{ url_for('static', filename='bgm/silence.mp3') }}" allow="autoplay" style="display:none"
+            id="audio-iframe"></iframe>
+
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                var bgm = document.getElementById('main-bgm');
+                var bgmBtn = document.getElementById('bgm-toggle-btn');
+                var bgmIcon = bgmBtn ? bgmBtn.querySelector('i') : null;
+
+                function updateUI(isPlaying) {
+                    if (!bgmBtn || !bgmIcon) return;
+                    if (isPlaying) {
+                        bgmIcon.className = 'fas fa-pause';
+                        bgmBtn.classList.add('playing');
+                    } else {
+                        bgmIcon.className = 'fas fa-play';
+                        bgmBtn.classList.remove('playing');
+                    }
+                }
+
+                // Attempt Autoplay
+                bgm.muted = false;
+                bgm.play().then(function () {
+                    console.log("Autoplay started");
+                    updateUI(true);
+                }).catch(function (err) {
+                    console.log("Autoplay blocked. User interaction required.");
+                });
+
+                window.toggleBGM = function () {
+                    if (bgm.paused) {
+                        bgm.play().then(function () { updateUI(true); });
+                    } else {
+                        bgm.pause();
+                        updateUI(false);
+                    }
+                };
+
+                // Pause BGM when tab is hidden or app minimized
+                document.addEventListener('visibilitychange', function () {
+                    if (document.hidden && !bgm.paused) {
+                        bgm.pause();
+                        updateUI(false);
+                    }
+                });
+            });
+        </script>
+
+        <!-- ======== 01. HERO: Dark + Cherry blossoms ======== -->
+        <header class="hero" style="background-image: url({{ url_for('static', filename='images/main_couple.jpg') }});">
+            <!-- <div class="section-num section-num--light">01. 표지</div> -->
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <p class="hero-kor-sub">우리 결혼합니다</p>
+                <h1 class="hero-script">Our Wedding</h1>
+                <div class="hero-names">
+                    <span>{{ data.groom_name }}</span>
+                    <span class="amp">&amp;</span>
+                    <span>{{ data.bride_name }}</span>
+                </div>
+                <p class="hero-date">{{ data.wedding_date }}</p>
+                <p class="hero-hall">{{ data.wedding_hall }}</p>
+            </div>
+        </header>
+
+        <!-- ======== Couple Photo with Script Overlay ======== -->
+        <section class="photo-overlay-section">
+            <img src="{{ url_for('static', filename='images/gallery_01.jpg') }}" alt="커플" class="overlay-bg-img">
+            <div class="overlay-text-box">
+                <p class="overlay-script">Our Wedding</p>
+            </div>
+        </section>
+
+        <!-- ======== 02. 인사말 (Pink) ======== -->
+        <section class="section section--pink fade-item">
+            <div class="section-num">인사말</div>
+            <div class="greeting-block">
+                <div class="greeting-handwrite">
+                    <p>서로가 마주보며 다져온 사랑을</p>
+                    <p>이제 함께 한 곳을 바라보며</p>
+                    <p>걸어가고자 합니다.</p>
+                    <br>
+                    <p>저희의 새로운 시작을</p>
+                    <p>축복해 주시면 감사하겠습니다.</p>
+                </div>
+                <div class="greeting-couple-names">
+                    <span>{{ data.groom_name }}</span>
+                    <span class="dot-sep">·</span>
+                    <span>{{ data.bride_name }}</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== Photo with handwriting overlay (Groom) ======== -->
+        <section class="photo-overlay-section photo-overlay--pink" style="padding-bottom: 50px;">
+            <img src="{{ url_for('static', filename='images/gallery_07.jpg') }}" alt="신랑"
+                class="overlay-bg-img overlay-bg-img--framed">
+            <div class="handwrite-on-photo"
+                style="top: 80%; bottom: auto; transform: translate(-50%, -50%); left: 75%;">
+                <img src="{{ url_for('static', filename='images/message-man.png') }}" alt="메시지" class="handwrite-img">
+            </div>
+        </section>
+
+        <!-- ======== Photo with handwriting overlay (Bride) ======== -->
+        <section class="photo-overlay-section photo-overlay--pink" style="padding-top: 0;">
+            <img src="{{ url_for('static', filename='images/gallery_08.jpg') }}" alt="신부"
+                class="overlay-bg-img overlay-bg-img--framed">
+            <div class="handwrite-on-photo">
+                <img src="{{ url_for('static', filename='images/message-woman.png') }}" alt="메시지" class="handwrite-img">
+            </div>
+        </section>
+
+        <!-- ======== 03. 갤러리 ======== -->
+        <section class="section section--white fade-item">
+            <div class="section-num">갤러리</div>
+            <h2 class="section-eng-title">GALLERY</h2>
+            <div class="gallery" id="gallery-grid">
+                <div class="gallery-img-wrap">
+                    <img src="{{ url_for('static', filename='images/gallery_01.jpg') }}" alt="사진 1" class="gallery-img"
+                        data-index="0">
+                </div>
+                <div class="gallery-img-wrap">
+                    <img src="{{ url_for('static', filename='images/gallery_02.jpg') }}" alt="사진 2" class="gallery-img"
+                        data-index="1">
+                </div>
+                <div class="gallery-img-wrap">
+                    <img src="{{ url_for('static', filename='images/gallery_03.jpg') }}" alt="사진 3" class="gallery-img"
+                        data-index="2">
+                </div>
+                <div class="gallery-img-wrap">
+                    <img src="{{ url_for('static', filename='images/gallery_04.jpg') }}" alt="사진 4" class="gallery-img"
+                        data-index="3">
+                </div>
+            </div>
+
+            <div class="gallery-extra-wrap" id="gallery-extra-wrap">
+                <div class="gallery">
+                    <div class="gallery-img-wrap">
+                        <img src="{{ url_for('static', filename='images/gallery_05.jpg') }}" alt="사진 5"
+                            class="gallery-img" data-index="4">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="{{ url_for('static', filename='images/gallery_06.jpg') }}" alt="사진 6"
+                            class="gallery-img" data-index="5">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="{{ url_for('static', filename='images/gallery_07.jpg') }}" alt="사진 7"
+                            class="gallery-img" data-index="6">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="{{ url_for('static', filename='images/gallery_08.jpg') }}" alt="사진 8"
+                            class="gallery-img" data-index="7">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="{{ url_for('static', filename='images/gallery_09.jpg') }}" alt="사진 9"
+                            class="gallery-img" data-index="8">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="{{ url_for('static', filename='images/gallery_10.jpg') }}" alt="사진 10"
+                            class="gallery-img" data-index="9">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="{{ url_for('static', filename='images/gallery_11.jpg') }}" alt="사진 11"
+                            class="gallery-img" data-index="10">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="{{ url_for('static', filename='images/gallery_12.jpg') }}" alt="사진 12"
+                            class="gallery-img" data-index="11">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="{{ url_for('static', filename='images/gallery_13.jpg') }}" alt="사진 13"
+                            class="gallery-img" data-index="12">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="{{ url_for('static', filename='images/gallery_14.jpg') }}" alt="사진 14"
+                            class="gallery-img" data-index="13">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="{{ url_for('static', filename='images/gallery_15.jpg') }}" alt="사진 15"
+                            class="gallery-img" data-index="14">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="{{ url_for('static', filename='images/gallery_16.jpg') }}" alt="사진 16"
+                            class="gallery-img" data-index="15">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="{{ url_for('static', filename='images/gallery_17.jpg') }}" alt="사진 17"
+                            class="gallery-img" data-index="16">
+                    </div>
+                </div>
+            </div>
+            <button id="toggle-gallery-btn" class="gallery-toggle-btn">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </section>
+
+        <!-- ======== Full-width photo with script ======== -->
+        <section class="photo-overlay-section">
+            <img src="{{ url_for('static', filename='images/gallery_03.jpg') }}" alt="커플" class="overlay-bg-img">
+            <div class="overlay-text-box">
+                <p class="overlay-script">Our Wedding</p>
+                <p class="overlay-sub">{{ data.groom_name }} &amp; {{ data.bride_name }}</p>
+            </div>
+        </section>
+
+        <!-- ======== 04. 예식일 (Pink) ======== -->
+        <section class="section section--pink fade-item">
+            <div class="section-num">예식일</div>
+            <h2 class="section-eng-title">WEDDING DAY</h2>
+            <div class="calendar-wrap">
+                <div class="cal-head">
+                    <span class="cal-month">MAY</span>
+                    <span class="cal-year">2026</span>
+                </div>
+                <table class="cal-table">
+                    <thead>
+                        <tr>
+                            <th class="sun">S</th>
+                            <th>M</th>
+                            <th>T</th>
+                            <th>W</th>
+                            <th>T</th>
+                            <th>F</th>
+                            <th class="sat">S</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>1</td>
+                            <td class="sat wedding-td"><span class="heart-mark">2</span></td>
+                        </tr>
+                        <tr>
+                            <td class="sun">3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td class="sat">9</td>
+                        </tr>
+                        <tr>
+                            <td class="sun">10</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                            <td>14</td>
+                            <td>15</td>
+                            <td class="sat">16</td>
+                        </tr>
+                        <tr>
+                            <td class="sun">17</td>
+                            <td>18</td>
+                            <td>19</td>
+                            <td>20</td>
+                            <td>21</td>
+                            <td>22</td>
+                            <td class="sat">23</td>
+                        </tr>
+                        <tr>
+                            <td class="sun">24</td>
+                            <td>25</td>
+                            <td>26</td>
+                            <td>27</td>
+                            <td>28</td>
+                            <td>29</td>
+                            <td class="sat">30</td>
+                        </tr>
+                        <tr>
+                            <td class="sun">31</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="wedding-datetime">2026. 05. 02. SAT &nbsp;|&nbsp; AM 11:30</p>
+            <p class="dday-line">{{ data.d_day }}</p>
+        </section>
+
+        <!-- ======== 05. 오시는 길 ======== -->
+        <section class="section section--white fade-item">
+            <div class="section-num">오시는 길</div>
+            <h2 class="section-eng-title">LOCATION</h2>
+            <p class="loc-name">{{ data.wedding_hall }}</p>
+            <div id="map" class="map-container"
+                style="display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.8em; text-align: center; padding: 20px;">
+                <div id="map-placeholder">지도를 불러오는 중입니다...<br><span style="font-size: 0.85em; opacity: 0.7;">(5초 이상 지속될
+                        경우 API 키 혹은 도메인 설정을 확인해주세요)</span></div>
+            </div>
+            <!-- <div class="nav-btns">
+                <a href="https://map.kakao.com/link/to/{{ data.wedding_hall }},{{ data.lat }},{{ data.lng }}"
+                    target="_blank"><i class="fas fa-map-marker-alt"></i> 카카오맵</a>
+                <a href="https://map.naver.com/p/directions/-/14125326.780382,4510271.9646786,%EB%8D%94%EC%84%B8%EC%9D%B8%ED%8A%B8,1616363001,PLACE_POI/-/car?c=15.00,0,0,0,dh"
+                    target="_blank"><i class="fas fa-map"></i> 네이버지도</a>
+                <a href="kakaonavi://route?name={{ data.wedding_hall }}&amp;x={{ data.lng }}&amp;y={{ data.lat }}&amp;p=1"
+                    target="_blank"><i class="fas fa-car"></i> 카카오내비</a>
+                <a href="tmap://route?name={{ data.wedding_hall }}&amp;lon={{ data.lng }}&amp;lat={{ data.lat }}&amp;version=1"
+                    target="_blank"><i class="fas fa-route"></i> T맵</a>
+            </div> -->
+            <div class="loc-addr-wrap">
+                <p class="loc-addr">{{ data.address }}</p>
+                <button class="copy-btn addr-copy-btn" data-copy="{{ data.address }}">복사</button>
+            </div>
+        </section>
+
+        <!-- ======== 06. 마음 전하실 곳 ======== -->
+        <section class="section section--pink fade-item">
+            <div class="section-num">마음 전하실 곳</div>
+            <h2 class="section-eng-title">GIFT</h2>
+            <p class="gift-sub">축하의 마음을 전해주세요</p>
+
+            <div class="acc-group" id="groom-acc">
+                <button class="acc-toggle" id="groom-toggle">
+                    <span>신랑측</span><i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="acc-body">
+                    <div class="acc-row">
+                        <div class="acc-detail">
+                            <div class="acc-info-line">
+                                <span class="acc-bank">{{ data.groom_account_bank }}</span>
+                                <span class="acc-num">{{ data.groom_account }}</span>
+                            </div>
+                            <span class="acc-who">{{ data.groom_name }}</span>
+                        </div>
+                        <button class="copy-btn" data-copy="{{ data.groom_account }}">복사</button>
+                    </div>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-row">
+                        <div class="acc-detail">
+                            <div class="acc-info-line">
+                                <span class="acc-bank">{{ data.groom_parent_account_bank }}</span>
+                                <span class="acc-num">{{ data.groom_parent_account }}</span>
+                            </div>
+                            <span class="acc-who">{{ data.groom_parent_account_name }}</span>
+                        </div>
+                        <button class="copy-btn" data-copy="{{ data.groom_parent_account }}">복사</button>
+                    </div>
+                </div>
+            </div>
+            <div class="acc-group" id="bride-acc">
+                <button class="acc-toggle" id="bride-toggle">
+                    <span>신부측</span><i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="acc-body">
+                    <div class="acc-row">
+                        <div class="acc-detail">
+                            <div class="acc-info-line">
+                                <span class="acc-bank">{{ data.bride_account_bank }} </span>
+                                <span class="acc-num">{{ data.bride_account }}</span>
+                            </div>
+                            <span class="acc-who">{{ data.bride_name }}</span>
+                        </div>
+                        <button class="copy-btn" data-copy="{{ data.bride_account }}">복사</button>
+                    </div>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-row">
+                        <div class="acc-detail">
+                            <div class="acc-info-line">
+                                <span class="acc-bank">{{ data.bride_parent_account_bank }} </span>
+                                <span class="acc-num">{{ data.bride_parent_account }}</span>
+                            </div>
+                            <span class="acc-who">{{ data.bride_parent_account_name }}</span>
+                        </div>
+                        <button class="copy-btn" data-copy="{{ data.bride_parent_account }}">복사</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p class="ft-script">Our Wedding</p>
+            <p class="ft-names">{{ data.groom_name }} &amp; {{ data.bride_name }}</p>
+        </footer>
+
+    </div>
+
+    <!-- ======== SWIPEABLE GALLERY MODAL ======== -->
+    <div id="gallery-modal" class="g-modal">
+        <button class="g-modal-close" id="modal-close-btn"><i class="fas fa-times"></i></button>
+        <button class="g-modal-arrow g-modal-prev" id="modal-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="g-modal-arrow g-modal-next" id="modal-next"><i class="fas fa-chevron-right"></i></button>
+        <img id="modal-img" class="g-modal-img" src="">
+        <div class="g-modal-counter" id="modal-counter">1 / 7</div>
+    </div>
+
+    <!-- MAP API -->
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey={{ data.map_api_key }}&autoload=false"></script>
+
+    <script>
+        // Use passive: false to allow preventDefault()
+        const preventOptions = { passive: false };
+
+        // 1. Double-tap zoom prevention (for older iOS Safari)
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, preventOptions);
+
+        // 2. Pinch-zoom prevention (Initial touch)
+        document.addEventListener('touchstart', function (event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, preventOptions);
+
+        // 3. Pinch-zoom prevention (Movement) - CRITICAL for scroll-time zoom
+        document.addEventListener('touchmove', function (event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, preventOptions);
+
+        // 4. iOS Gesture prevention (Pinch/Rotate)
+        document.addEventListener('gesturestart', function (event) { event.preventDefault(); }, preventOptions);
+        document.addEventListener('gesturechange', function (event) { event.preventDefault(); }, preventOptions);
+
+        // 5. Desktop Trackpad/Mouse zoom prevention (Ctrl + Wheel)
+        document.addEventListener('wheel', function (event) {
+            if (event.ctrlKey) {
+                event.preventDefault();
+            }
+        }, preventOptions);
+    </script>
+
+    <script>
+        /* ===== GLOBAL DATA ===== */
+        var WEDDING_LAT = parseFloat("{{ data.lat }}");
+        var WEDDING_LNG = parseFloat("{{ data.lng }}");
+        var kmap = null;
+        var mapCenter = null;
+
+        /* ===== FADE EFFECT ===== */
+        function fadeCheck() {
+            var els = document.querySelectorAll('.fade-item');
+            var threshold = window.innerHeight * 0.9;
+            els.forEach(function (el) {
+                if (!el.classList.contains('visible') && el.getBoundingClientRect().top < threshold) {
+                    el.classList.add('visible');
+                    // If this is the map section, trigger a redraw to fix mobile rendering
+                    if (el.querySelector('#map') && kmap) {
+                        console.log("Map section visible, triggering relayout (1000ms delay)");
+                        setTimeout(function () {
+                            kmap.relayout();
+                            kmap.setCenter(mapCenter);
+                        }, 1000); // 0.8s transition + 0.2s margin
+                    }
+                }
+            });
+        }
+        window.addEventListener('scroll', fadeCheck);
+        window.addEventListener('load', fadeCheck);
+
+        /* ===== KAKAO MAP ===== */
+        var mapLoaded = false;
+        function initMap() {
+            if (mapLoaded) return;
+
+            if (typeof kakao === 'undefined' || !kakao.maps) {
+                console.log("Kakao SDK not ready yet, retrying in 500ms");
+                setTimeout(initMap, 500);
+                return;
+            }
+
+            kakao.maps.load(function () {
+                try {
+                    var mapEl = document.getElementById('map');
+                    if (!mapEl) return;
+
+                    mapCenter = new kakao.maps.LatLng(WEDDING_LAT, WEDDING_LNG);
+                    var opts = {
+                        center: mapCenter,
+                        level: 3
+                    };
+                    kmap = new kakao.maps.Map(mapEl, opts);
+
+                    var marker = new kakao.maps.Marker({
+                        position: mapCenter
+                    });
+                    marker.setMap(kmap);
+
+                    mapLoaded = true;
+                    var placeholder = document.getElementById('map-placeholder');
+                    if (placeholder) placeholder.style.display = 'none';
+                    mapEl.style.background = 'transparent';
+
+                    // Mobile rendering stability
+                    console.log("Map initialized successfully");
+                    [500, 1500, 3000].forEach(delay => {
+                        setTimeout(function () {
+                            if (kmap) {
+                                kmap.relayout();
+                                kmap.setCenter(mapCenter);
+                            }
+                        }, delay);
+                    });
+                } catch (e) {
+                    console.error("Map Error:", e);
+                    var placeholder = document.getElementById('map-placeholder');
+                    if (placeholder) {
+                        placeholder.innerHTML = "지도를 불러오지 못했습니다.<br><span style='color: #d9534f;'>Kakao 플랫폼 설정(도메인)을 확인해주세요.</span>";
+                    }
+                }
+            });
+        }
+
+        // Diagnostic Timeout: If map not loaded in 7 seconds
+        setTimeout(function () {
+            if (!mapLoaded) {
+                var placeholder = document.getElementById('map-placeholder');
+                if (placeholder) {
+                    placeholder.innerHTML = "지도가 로드되지 않고 있습니다.<br><span style='color: #d9534f;'>Kakao 개발자 센터의 '내 애플리케이션 > 플랫폼'에<br>현재 도메인이 등록되어 있는지 확인해주세요.</span>";
+                }
+            }
+        }, 7000);
+
+        // Try initialization multiple times
+        window.addEventListener('load', initMap);
+        initMap(); // Immediate attempt
+
+
+        /* ===== GALLERY TOGGLE ===== */
+        var togBtn = document.getElementById('toggle-gallery-btn');
+        var galleryExtraWrap = document.getElementById('gallery-extra-wrap');
+        var galleryOpen = false;
+
+        if (togBtn && galleryExtraWrap) {
+            togBtn.addEventListener('click', function () {
+                galleryOpen = !galleryOpen;
+                var ic = togBtn.querySelector('i');
+
+                galleryExtraWrap.classList.toggle('show', galleryOpen);
+
+                ic.classList.toggle('fa-chevron-down', !galleryOpen);
+                ic.classList.toggle('fa-chevron-up', galleryOpen);
+            });
+        }
+
+        /* ===== SWIPEABLE GALLERY MODAL ===== */
+        var gModal = document.getElementById('gallery-modal');
+        var mImg = document.getElementById('modal-img');
+        var mCounter = document.getElementById('modal-counter');
+        var allImgs = document.querySelectorAll('.gallery-img');
+        var imgSrcs = [];
+        allImgs.forEach(function (img) { imgSrcs.push(img.src); });
+        var currentIdx = 0;
+
+        function showSlide(idx) {
+            if (idx < 0) idx = imgSrcs.length - 1;
+            if (idx >= imgSrcs.length) idx = 0;
+            currentIdx = idx;
+            mImg.src = imgSrcs[currentIdx];
+            mCounter.textContent = (currentIdx + 1) + ' / ' + imgSrcs.length;
+        }
+
+        function closeModal(pushHistory) {
+            if (!gModal.classList.contains('active')) return;
+            gModal.classList.remove('active');
+            document.body.style.overflow = '';
+            // If the user manually clicked close, we need to go back in history
+            if (pushHistory !== false && history.state && history.state.modal === 'gallery') {
+                history.back();
+            }
+        }
+
+        allImgs.forEach(function (img, i) {
+            img.addEventListener('click', function () {
+                currentIdx = i;
+                showSlide(currentIdx);
+                gModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                // Push state for back button support
+                history.pushState({ modal: 'gallery' }, '');
+            });
+        });
+
+        document.getElementById('modal-close-btn').onclick = function () {
+            closeModal();
+        };
+
+        // Also close on background click
+        gModal.addEventListener('click', function (e) {
+            if (e.target === gModal) {
+                closeModal();
+            }
+        });
+
+        window.addEventListener('popstate', function (event) {
+            // Close modal instead of going back if modal is active
+            if (gModal.classList.contains('active')) {
+                closeModal(false);
+            }
+        });
+
+        document.getElementById('modal-prev').onclick = function () { showSlide(currentIdx - 1); };
+        document.getElementById('modal-next').onclick = function () { showSlide(currentIdx + 1); };
+
+        /* Swipe support for touch (Singular touch only) */
+        var touchStartX = 0;
+        var isMultiTouch = false;
+
+        mImg.addEventListener('touchstart', function (e) {
+            isMultiTouch = e.touches.length > 1;
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        mImg.addEventListener('touchmove', function (e) {
+            if (e.touches.length > 1) isMultiTouch = true;
+        }, false);
+
+        mImg.addEventListener('touchend', function (e) {
+            if (isMultiTouch) return; // Ignore if it was a multi-touch/zoom gesture
+
+            var diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                showSlide(currentIdx + (diff > 0 ? 1 : -1));
+            }
+        }, false);
+
+        /* ===== BGM TOGGLE ===== */
+        var bgmBtn = document.getElementById('bgm-toggle-btn');
+        if (bgmBtn) {
+            bgmBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (window.toggleBGM) window.toggleBGM();
+            });
+        }
+
+        /* ===== ACCOUNT TOGGLE ===== */
+        document.querySelectorAll('.acc-toggle').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                btn.parentElement.classList.toggle('open');
+            });
+        });
+
+        /* ===== COPY FUNCTIONALITY ===== */
+        function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                return navigator.clipboard.writeText(text);
+            } else {
+                var textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed"; textArea.style.left = "-9999px";
+                document.body.appendChild(textArea);
+                textArea.focus(); textArea.select();
+                var res = document.execCommand('copy');
+                document.body.removeChild(textArea);
+                return res ? Promise.resolve() : Promise.reject();
+            }
+        }
+
+        document.querySelectorAll('.copy-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var textToCopy = btn.dataset.copy;
+                copyToClipboard(textToCopy).then(function () {
+                    var originalText = btn.textContent;
+                    btn.textContent = '복사됨';
+                    setTimeout(function () { btn.textContent = originalText; }, 1000);
+                }).catch(function (err) { console.error('Copy failed:', err); });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

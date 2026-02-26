@@ -1,0 +1,8 @@
+static/css/backup
+static/css/backup/*
+
+templates/backup
+templates/backup/*
+
+.idea/
+.vs/

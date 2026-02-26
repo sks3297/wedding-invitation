@@ -1,0 +1,894 @@
+/* =========================================
+   Reset & Base
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background: #eee;
+    font-family: 'Noto Serif KR', 'Nanum Myeongjo', serif;
+    color: #333;
+    line-height: 1.8;
+    word-break: keep-all;
+    -webkit-font-smoothing: antialiased;
+    /* Prevent pinch zoom while allowing vertical scroll */
+    touch-action: pan-y;
+    -webkit-text-size-adjust: none;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    background: #fff;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(0, 0, 0, .06);
+}
+
+/* =========================================
+   Section Number Label (오른쪽)
+========================================= */
+.section-num {
+    position: absolute;
+    right: 14px;
+    top: 22px;
+    writing-mode: vertical-rl;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .65em;
+    letter-spacing: 3px;
+    color: rgba(0, 0, 0, .22);
+    font-weight: 300;
+    z-index: 20;
+}
+
+.section-num--light {
+    color: rgba(255, 255, 255, .35);
+}
+
+/* =========================================
+   01. HERO
+========================================= */
+.hero {
+    width: 100%;
+    height: 100vh;
+    min-height: 580px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(0, 0, 0, .3) 0%,
+            rgba(0, 0, 0, .05) 35%,
+            rgba(0, 0, 0, .05) 60%,
+            rgba(0, 0, 0, .5) 100%);
+}
+
+.hero-content {
+    text-align: center;
+    color: #fff;
+    z-index: 10;
+    padding: 0 30px;
+}
+
+.hero-kor-sub {
+    font-size: .82em;
+    letter-spacing: 5px;
+    font-weight: 200;
+    opacity: .85;
+    margin-bottom: 8px;
+}
+
+.hero-script {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.6em;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin-bottom: 28px;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, .25);
+}
+
+.hero-names {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    font-size: 1.2em;
+    font-weight: 300;
+    letter-spacing: 4px;
+}
+
+.amp {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    opacity: .7;
+    font-size: .9em;
+}
+
+.hero-date {
+    font-size: .85em;
+    opacity: .8;
+    letter-spacing: 2px;
+    font-weight: 300;
+    margin-top: 4px;
+}
+
+.hero-hall {
+    font-size: .78em;
+    opacity: .65;
+    letter-spacing: 1px;
+    font-weight: 300;
+    margin-top: 3px;
+}
+
+/* =========================================
+   Photo Overlay Section (사진 위 글씨)
+========================================= */
+.photo-overlay-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.overlay-bg-img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    min-height: 320px;
+    filter: brightness(.75);
+}
+
+.overlay-bg-img--framed {
+    width: 85%;
+    margin: 0 auto;
+    display: block;
+    border-radius: 6px;
+    filter: brightness(.9);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .15);
+}
+
+.photo-overlay--pink {
+    background: linear-gradient(180deg, #f5d5d5, #f2d0d0);
+    padding: 40px 0;
+}
+
+.overlay-text-box {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.overlay-script {
+    font-family: 'Great Vibes', cursive;
+    color: #fff;
+    font-size: 3em;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, .35);
+    letter-spacing: 2px;
+}
+
+.overlay-sub {
+    color: rgba(255, 255, 255, .8);
+    font-size: .9em;
+    letter-spacing: 3px;
+    font-weight: 300;
+    margin-top: 8px;
+}
+
+/* Handwritten text on photo */
+.handwrite-on-photo {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 5;
+    width: 50%;
+}
+
+.handwrite-line {
+    font-family: 'Nanum Myeongjo', 'Noto Serif KR', serif;
+    color: rgba(255, 255, 255, .9);
+    font-size: .95em;
+    font-weight: 400;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, .4);
+    letter-spacing: 2px;
+    line-height: 2.2;
+    font-style: italic;
+}
+
+.handwrite-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, .3));
+}
+
+/* =========================================
+   Sections Common
+========================================= */
+.section {
+    padding: 70px 28px;
+    text-align: center;
+    position: relative;
+    opacity: 0;
+    transform: translateY(22px);
+    transition: all .7s cubic-bezier(.22, 1, .36, 1);
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section--pink {
+    background: linear-gradient(180deg, #f5d5d5 0%, #f2cccc 100%);
+}
+
+.section--white {
+    background: #fff;
+}
+
+.section-eng-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .8em;
+    letter-spacing: 8px;
+    margin-bottom: 30px;
+    font-weight: 400;
+    color: #aaa;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   02. Greeting
+========================================= */
+.greeting-block {
+    max-width: 340px;
+    margin: 0 auto;
+}
+
+.greeting-handwrite {
+    font-family: 'Nanum Myeongjo', 'Noto Serif KR', serif;
+    font-size: .92em;
+    color: #5a4a4a;
+    line-height: 2.4;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+.greeting-couple-names {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 1.05em;
+    font-weight: 400;
+    color: #5a4a4a;
+    letter-spacing: 3px;
+}
+
+.dot-sep {
+    color: #c4908c;
+    font-size: 1.3em;
+}
+
+/* =========================================
+   03. Gallery (consistent 2-col grid)
+========================================= */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3px;
+}
+
+.gallery-img-wrap {
+    overflow: hidden;
+}
+
+.gallery-img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: transform .3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.03);
+}
+
+.gallery-extra-wrap {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 3px;
+    /* Keep layout stable by having margin on the base class */
+    transition: max-height 0.6s ease-out,
+        opacity 0.4s ease;
+    will-change: max-height, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    pointer-events: none;
+    /* Disable interaction while hidden */
+}
+
+.gallery-extra-wrap.show {
+    max-height: 1200px;
+    /* Reduced for smoother easing curve */
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.gallery-toggle-btn {
+    margin: 25px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background: transparent;
+    color: #999;
+    cursor: pointer;
+    font-size: .9em;
+    transition: all .2s;
+}
+
+.gallery-toggle-btn:hover {
+    border-color: #aaa;
+    color: #555;
+}
+
+.gallery-toggle-btn i {
+    transition: transform .3s ease;
+}
+
+/* =========================================
+   04. Calendar
+========================================= */
+.calendar-wrap {
+    max-width: 300px;
+    margin: 0 auto 20px;
+    background: rgba(255, 255, 255, .5);
+    border-radius: 12px;
+    padding: 22px 18px;
+}
+
+.cal-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.cal-month {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5em;
+    font-weight: 400;
+    color: #c4908c;
+    letter-spacing: 3px;
+}
+
+.cal-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .95em;
+    font-weight: 300;
+    color: #aaa;
+    letter-spacing: 2px;
+}
+
+.cal-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .85em;
+    color: #666;
+    table-layout: fixed;
+    /* Force equal-width columns */
+}
+
+.cal-table th,
+.cal-table td {
+    padding: 9px 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.cal-table th {
+    font-weight: 300;
+    font-size: .72em;
+    color: #aaa;
+    letter-spacing: 1px;
+    padding-bottom: 14px;
+}
+
+.cal-table td {
+    font-weight: 300;
+}
+
+.cal-table .sun {
+    color: #d4908a;
+}
+
+.cal-table .sat {
+    color: #8a9ec0;
+}
+
+/* Heart marker */
+.wedding-td {
+    position: relative;
+}
+
+.heart-mark {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    font-weight: 400;
+    font-size: .85em;
+}
+
+.heart-mark::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28px;
+    height: 26px;
+    background: #d4908a;
+    z-index: -1;
+    clip-path: path('M14,24 C14,24 2,17 2,8.5 C2,3.8 5.5,.9 9.2,.9 C11.5,.9 13.3,2.3 14,3.7 C14.7,2.3 16.5,.9 18.8,.9 C22.5,.9 26,3.8 26,8.5 C26,17 14,24 14,24 Z');
+}
+
+.wedding-datetime {
+    font-size: .85em;
+    color: #888;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-top: 8px;
+}
+
+.dday-line {
+    font-size: .82em;
+    color: #c4908c;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-top: 14px;
+}
+
+/* =========================================
+   05. Location
+========================================= */
+.loc-name {
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+.loc-addr-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 10px auto 25px;
+    max-width: 380px;
+}
+
+.loc-addr {
+    font-size: .82em;
+    color: #888;
+    margin-bottom: 0;
+    font-weight: 300;
+    line-height: 1.6;
+    text-align: left;
+    flex: 1;
+}
+
+.addr-copy-btn {
+    flex-shrink: 0;
+}
+
+.map-container {
+    width: 100%;
+    height: 260px;
+    min-height: 260px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+    background: #f5f5f5;
+}
+
+.nav-btns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7px;
+    margin-top: 18px;
+}
+
+.nav-btns a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 11px 6px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    font-size: .8em;
+    color: #666;
+    text-decoration: none;
+    background: #fafafa;
+    font-family: 'Noto Serif KR', serif;
+    transition: all .2s;
+}
+
+.nav-btns a:hover {
+    background: #f0f0f0;
+    border-color: #ccc;
+    color: #333;
+}
+
+.nav-btns a i {
+    font-size: .85em;
+    color: #999;
+}
+
+/* =========================================
+   06. Gift / Accounts
+========================================= */
+.gift-sub {
+    font-size: .82em;
+    color: #888;
+    font-weight: 300;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.acc-group {
+    max-width: 360px;
+    margin: 7px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, .55);
+    border: 1px solid rgba(255, 255, 255, .8);
+    backdrop-filter: blur(5px);
+}
+
+.acc-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border: none;
+    background: transparent;
+    font-family: 'Noto Serif KR', serif;
+    font-size: .92em;
+    font-weight: 400;
+    color: #555;
+    cursor: pointer;
+}
+
+.acc-toggle i {
+    font-size: .65em;
+    color: #aaa;
+    transition: transform .3s ease;
+}
+
+.acc-group.open .acc-toggle i {
+    transform: rotate(180deg);
+}
+
+.acc-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease-in-out;
+}
+
+.acc-group.open .acc-body {
+    max-height: 180px;
+}
+
+.acc-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 18px;
+    border-top: 1px solid rgba(0, 0, 0, .05);
+    gap: 12px;
+}
+
+.acc-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+}
+
+.acc-info-line {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.acc-bank {
+    font-size: .7em;
+    color: #aaa;
+    font-weight: 300;
+    white-space: nowrap;
+}
+
+.acc-num {
+    font-size: .85em;
+    color: #555;
+    font-weight: 400;
+    letter-spacing: .5px;
+    word-break: break-all;
+}
+
+.acc-who {
+    font-size: .78em;
+    color: #888;
+    font-weight: 300;
+    margin-top: 1px;
+}
+
+.copy-btn {
+    flex-shrink: 0;
+    padding: 6px 12px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 50px;
+    background: rgba(255, 255, 255, .7);
+    font-size: .75em;
+    cursor: pointer;
+    color: #777;
+    font-family: 'Noto Serif KR', serif;
+    transition: all .2s;
+    white-space: nowrap;
+}
+
+.copy-btn:hover {
+    background: #fff;
+    border-color: rgba(0, 0, 0, .2);
+    color: #333;
+}
+
+/* =========================================
+   Swipeable Gallery Modal
+========================================= */
+.g-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility .3s ease;
+    touch-action: none;
+    user-select: none;
+}
+
+.g-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.g-modal-img {
+    max-width: 92%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 4px;
+    user-select: none;
+    -webkit-user-drag: none;
+    transition: opacity .25s ease;
+    touch-action: none;
+}
+
+.g-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, .7);
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 10001;
+    transition: color .2s;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.g-modal-close:hover {
+    color: #fff;
+}
+
+.g-modal-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, .1);
+    border: none;
+    color: rgba(255, 255, 255, .7);
+    font-size: 1.1em;
+    cursor: pointer;
+    z-index: 10001;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s;
+}
+
+.g-modal-arrow:hover {
+    background: rgba(255, 255, 255, .2);
+    color: #fff;
+}
+
+.g-modal-prev {
+    left: 10px;
+}
+
+.g-modal-next {
+    right: 10px;
+}
+
+.g-modal-counter {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, .5);
+    font-size: .8em;
+    letter-spacing: 2px;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* =========================================
+   Footer
+========================================= */
+.footer {
+    padding: 45px 20px 35px;
+    text-align: center;
+    background: #3a3535;
+}
+
+.ft-script {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.7em;
+    color: rgba(255, 255, 255, .55);
+    margin-bottom: 6px;
+}
+
+.ft-names {
+    font-size: .8em;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, .35);
+    font-weight: 300;
+}
+
+/* =========================================
+   BGM Toggle
+========================================= */
+.bgm-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c4908c;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.bgm-toggle:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.05);
+}
+
+.bgm-toggle.playing {
+    animation: pulse-bgm 2s infinite;
+}
+
+@keyframes pulse-bgm {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 4px 20px rgba(196, 144, 140, 0.3);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* =========================================
+   Fade
+========================================= */
+.fade-item {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity .7s cubic-bezier(.22, 1, .36, 1),
+        transform .7s cubic-bezier(.22, 1, .36, 1);
+}
+
+.fade-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   Responsive
+========================================= */
+@media(max-width:380px) {
+    .hero-script {
+        font-size: 2.8em;
+    }
+
+    .hero-names {
+        font-size: 1em;
+        letter-spacing: 2px;
+    }
+
+    .section {
+        padding: 55px 20px;
+    }
+
+    .overlay-script {
+        font-size: 2.4em;
+    }
+}
