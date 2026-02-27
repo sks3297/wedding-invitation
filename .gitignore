@@ -1,6 +1,9 @@
 static/css/backup
 static/css/backup/*
 
+static/images/backup
+static/images/backup/*
+
 templates/backup
 templates/backup/*
 

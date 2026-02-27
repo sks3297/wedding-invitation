@@ -562,6 +562,136 @@ body {
 }
 
 /* =========================================
+   Transportation Tabs
+========================================= */
+.transport-wrap {
+    margin-top: 24px;
+    text-align: left;
+}
+
+.transport-tabs {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0;
+}
+
+.transport-tab {
+    flex: 1;
+    padding: 11px 6px;
+    border: none;
+    background: transparent;
+    font-family: 'Noto Serif KR', serif;
+    font-size: .78em;
+    color: #aaa;
+    cursor: pointer;
+    text-align: center;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all .2s;
+    letter-spacing: .5px;
+}
+
+.transport-tab i {
+    display: block;
+    font-size: 1.25em;
+    margin-bottom: 4px;
+    color: #ccc;
+    transition: color .2s;
+}
+
+.transport-tab.active {
+    color: #c4908c;
+    border-bottom-color: #c4908c;
+}
+
+.transport-tab.active i {
+    color: #c4908c;
+}
+
+.transport-content {
+    display: none;
+    padding: 18px 4px 8px;
+    animation: tabFadeIn .25s ease;
+}
+
+.transport-content.active {
+    display: block;
+}
+
+@keyframes tabFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.transport-item {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.transport-desc {
+    font-size: .8em;
+    color: #888;
+    line-height: 1.7;
+    font-weight: 300;
+    padding: 10px 12px;
+    background: #fafafa;
+    border-radius: 8px;
+    border-left: 2px solid #e0b8b5;
+}
+
+.transport-route {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 6px 10px;
+    align-items: baseline;
+    font-size: .8em;
+    line-height: 1.7;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.transport-route:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.route-label {
+    font-size: .88em;
+    font-weight: 500;
+    color: #c4908c;
+    white-space: nowrap;
+    padding-top: 2px;
+}
+
+.route-text {
+    color: #666;
+    font-weight: 300;
+    word-break: keep-all;
+    line-height: 1.8;
+    padding-left: 4px;
+}
+
+.bus-type {
+    display: inline-block;
+    font-size: .75em;
+    background: #f0e8e8;
+    color: #b07070;
+    border-radius: 3px;
+    padding: 1px 5px;
+    margin-right: 2px;
+    font-weight: 400;
+    vertical-align: middle;
+}
+
+/* =========================================
    06. Gift / Accounts
 ========================================= */
 .gift-sub {
