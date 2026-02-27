@@ -43,13 +43,21 @@ def index():
         'bride_account_bank': '{BRIDE_ACCOUNT_BANK}',
         'bride_phone': '{BRIDGE_PHONE}',
 
-        'groom_parent_account_bank': '{GROOM_PARENT_ACCOUNT_BANK}',
-        'groom_parent_account_name': '{GROOM_PARENT_ACCOUNT_NAME}',
-        'groom_parent_account': '{GROOM_PARENT_ACCOUNT}',
+        'groom_father_name': '{GROOM_FATHER_NAME}',
+        'groom_father_account_bank': '{GROOM_FATHER_ACCOUNT_BANK}',
+        'groom_father_account': '{GROOM_FATHER_ACCOUNT}',
 
-        'bride_parent_account_bank': '{BRIDE_PARENT_ACCOUNT_BANK}',
-        'bride_parent_account_name': '{BRIDE_PARENT_ACCOUNT_NAME}',        
-        'bride_parent_account': '{BRIDE_PARENT_ACCOUNT}',
+        'groom_mother_name': '{GROOM_MOTHER_NAME}',
+        'groom_mother_account_bank': '{GROOM_MOTHER_ACCOUNT_BANK}',
+        'groom_mother_account': '{GROOM_MOTHER_ACCOUNT}',
+
+        'bride_father_name': '{BRIDE_FATHER_NAME}',        
+        'bride_father_account_bank': '{BRIDE_FATHER_ACCOUNT_BANK}',
+        'bride_father_account': '{BRIDE_FATHER_ACCOUNT}',
+
+        'bride_mother_name': '{BRIDE_MOTHER_NAME}',        
+        'bride_mother_account_bank': '{BRIDE_MOTHER_ACCOUNT_BANK}',
+        'bride_mother_account': '{BRIDE_MOTHER_ACCOUNT}',
         
         # 지도 설정을 함께 전달
         'map_api_key': KAKAO_MAP_API_KEY,

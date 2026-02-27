@@ -356,12 +356,24 @@
                     <div class="acc-row">
                         <div class="acc-detail">
                             <div class="acc-info-line">
-                                <span class="acc-bank">{{ data.groom_parent_account_bank }}</span>
-                                <span class="acc-num">{{ data.groom_parent_account }}</span>
+                                <span class="acc-bank">{{ data.groom_father_account_bank }}</span>
+                                <span class="acc-num">{{ data.groom_father_account }}</span>
                             </div>
-                            <span class="acc-who">{{ data.groom_parent_account_name }}</span>
+                            <span class="acc-who">{{ data.groom_father_name }}</span>
                         </div>
-                        <button class="copy-btn" data-copy="{{ data.groom_parent_account }}">복사</button>
+                        <button class="copy-btn" data-copy="{{ data.groom_father_account }}">복사</button>
+                    </div>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-row">
+                        <div class="acc-detail">
+                            <div class="acc-info-line">
+                                <span class="acc-bank">{{ data.groom_mother_account_bank }}</span>
+                                <span class="acc-num">{{ data.groom_mother_account }}</span>
+                            </div>
+                            <span class="acc-who">{{ data.groom_mother_name }}</span>
+                        </div>
+                        <button class="copy-btn" data-copy="{{ data.groom_mother_account }}">복사</button>
                     </div>
                 </div>
                 <div class="acc-body">
@@ -385,12 +397,24 @@
                     <div class="acc-row">
                         <div class="acc-detail">
                             <div class="acc-info-line">
-                                <span class="acc-bank">{{ data.bride_parent_account_bank }}</span>
-                                <span class="acc-num">{{ data.bride_parent_account }}</span>
+                                <span class="acc-bank">{{ data.bride_father_account_bank }}</span>
+                                <span class="acc-num">{{ data.bride_father_account }}</span>
                             </div>
-                            <span class="acc-who">{{ data.bride_parent_account_name }}</span>
+                            <span class="acc-who">{{ data.bride_father_name }}</span>
                         </div>
-                        <button class="copy-btn" data-copy="{{ data.bride_parent_account }}">복사</button>
+                        <button class="copy-btn" data-copy="{{ data.bride_father_account }}">복사</button>
+                    </div>
+                </div>
+                <div class="acc-body">
+                    <div class="acc-row">
+                        <div class="acc-detail">
+                            <div class="acc-info-line">
+                                <span class="acc-bank">{{ data.bride_mother_account_bank }}</span>
+                                <span class="acc-num">{{ data.bride_mother_account }}</span>
+                            </div>
+                            <span class="acc-who">{{ data.bride_mother_name }}</span>
+                        </div>
+                        <button class="copy-btn" data-copy="{{ data.bride_mother_account }}">복사</button>
                     </div>
                 </div>
                 <div class="acc-body">
