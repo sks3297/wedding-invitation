@@ -158,7 +158,8 @@ body {
 .photo-overlay-section {
     position: relative;
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
+    /* 잘림 현상 방지를 위해 hidden 제거 */
 }
 
 .overlay-bg-img {
