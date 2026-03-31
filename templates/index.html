@@ -123,7 +123,7 @@
             <img src="{{ url_for('static', filename='images/overlay_image.png') }}" alt="커플" class="overlay-bg-img"
                 style="height: 100%;">
 
-            <div class="handwrite-on-photo" style="left: 30%;">
+            <div class="handwrite-on-photo" style="left: 30%; top: 75%;">
                 <img src="{{ url_for('static', filename='images/message-man.png') }}" alt="신랑_메시지"
                     class="handwrite-img">
             </div>
@@ -448,15 +448,15 @@
                 <div class="gift-faces" id="faces-groom" style="display: none;">
                     <button class="gift-face-btn" onclick="showGiftAccount('groom-self', this)">
                         <div class="face-circle">신랑</div>
-                        <span class="face-name">{{ data.groom_name }}</span>
+                        <!-- <span class="face-name">{{ data.groom_name }}</span> -->
                     </button>
                     <button class="gift-face-btn" onclick="showGiftAccount('groom-dad', this)">
                         <div class="face-circle">신랑</br>아버지</div>
-                        <span class="face-name">{{ data.groom_father_name }}</span>
+                        <!-- <span class="face-name">{{ data.groom_father_name }}</span> -->
                     </button>
                     <button class="gift-face-btn" onclick="showGiftAccount('groom-mom', this)">
                         <div class="face-circle">신랑</br>어머니</div>
-                        <span class="face-name">{{ data.groom_mother_name }}</span>
+                        <!-- <span class="face-name">{{ data.groom_mother_name }}</span> -->
                     </button>
                 </div>
 
@@ -464,15 +464,15 @@
                 <div class="gift-faces" id="faces-bride" style="display: none;">
                     <button class="gift-face-btn" onclick="showGiftAccount('bride-self', this)">
                         <div class="face-circle">신부</div>
-                        <span class="face-name">{{ data.bride_name }}</span>
+                        <!-- <span class="face-name">{{ data.bride_name }}</span> -->
                     </button>
                     <button class="gift-face-btn" onclick="showGiftAccount('bride-dad', this)">
                         <div class="face-circle">신부</br>아버지</div>
-                        <span class="face-name">{{ data.bride_father_name }}</span>
+                        <!-- <span class="face-name">{{ data.bride_father_name }}</span> -->
                     </button>
                     <button class="gift-face-btn" onclick="showGiftAccount('bride-mom', this)">
                         <div class="face-circle">신부</br>어머니</div>
-                        <span class="face-name">{{ data.bride_mother_name }}</span>
+                        <!-- <span class="face-name">{{ data.bride_mother_name }}</span> -->
                     </button>
                 </div>
 
