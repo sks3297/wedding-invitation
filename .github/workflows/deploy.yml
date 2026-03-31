@@ -38,7 +38,7 @@ jobs:
           sed -i "s/{GROOM_PHONE}/${{ secrets.GROOM_PHONE }}/g" app.py
           sed -i "s/{BRIDE_ACCOUNT}/${{ secrets.BRIDE_ACCOUNT }}/g" app.py
           sed -i "s/{BRIDE_ACCOUNT_BANK}/${{ secrets.BRIDE_ACCOUNT_BANK }}/g" app.py
-          sed -i "s/{BRIDGE_PHONE}/${{ secrets.BRIDGE_PHONE }}/g" app.py
+          sed -i "s/{BRIDE_PHONE}/${{ secrets.BRIDE_PHONE }}/g" app.py
           sed -i "s/{GROOM_FATHER_NAME}/${{ secrets.GROOM_FATHER_NAME }}/g" app.py
           sed -i "s/{GROOM_FATHER_ACCOUNT_BANK}/${{ secrets.GROOM_FATHER_ACCOUNT_BANK }}/g" app.py
           sed -i "s/{GROOM_FATHER_ACCOUNT}/${{ secrets.GROOM_FATHER_ACCOUNT }}/g" app.py
