@@ -27,7 +27,7 @@
         <button id="bgm-toggle-btn" class="bgm-toggle">
             <i class="fas fa-play"></i>
         </button>
-        <audio id="main-bgm" loop muted autoplay playsinline preload="auto">
+        <audio id="main-bgm" loop playsinline preload="auto">
             <source src="{{ url_for('static', filename='bgm/bgm.mp3') }}" type="audio/mpeg">
         </audio>
 
@@ -48,14 +48,9 @@
                     }
                 }
 
-                // Attempt Autoplay
+                // Default Off
                 bgm.muted = false;
-                bgm.play().then(function () {
-                    console.log("Autoplay started");
-                    updateUI(true);
-                }).catch(function (err) {
-                    console.log("Autoplay blocked. User interaction required.");
-                });
+                updateUI(false);
 
                 window.toggleBGM = function () {
                     if (bgm.paused) {
@@ -456,11 +451,11 @@
                         <span class="face-name">{{ data.groom_name }}</span>
                     </button>
                     <button class="gift-face-btn" onclick="showGiftAccount('groom-dad', this)">
-                        <div class="face-circle">아버지</div>
+                        <div class="face-circle">신랑</br>아버지</div>
                         <span class="face-name">{{ data.groom_father_name }}</span>
                     </button>
                     <button class="gift-face-btn" onclick="showGiftAccount('groom-mom', this)">
-                        <div class="face-circle">어머니</div>
+                        <div class="face-circle">신랑</br>어머니</div>
                         <span class="face-name">{{ data.groom_mother_name }}</span>
                     </button>
                 </div>
@@ -472,11 +467,11 @@
                         <span class="face-name">{{ data.bride_name }}</span>
                     </button>
                     <button class="gift-face-btn" onclick="showGiftAccount('bride-dad', this)">
-                        <div class="face-circle">아버지</div>
+                        <div class="face-circle">신부</br>아버지</div>
                         <span class="face-name">{{ data.bride_father_name }}</span>
                     </button>
                     <button class="gift-face-btn" onclick="showGiftAccount('bride-mom', this)">
-                        <div class="face-circle">어머니</div>
+                        <div class="face-circle">신부</br>어머니</div>
                         <span class="face-name">{{ data.bride_mother_name }}</span>
                     </button>
                 </div>
