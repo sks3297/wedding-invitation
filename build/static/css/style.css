@@ -1,0 +1,1202 @@
+/* =========================================
+   Reset & Base
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background: #f2eeeb;
+    font-family: 'Noto Serif KR', 'Nanum Myeongjo', serif;
+    color: #3a3a3a;
+    line-height: 2.0;
+    word-break: keep-all;
+    -webkit-font-smoothing: antialiased;
+    touch-action: pan-y;
+    -webkit-text-size-adjust: none;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    background: #faf9f7;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(0, 0, 0, .05);
+}
+
+/* =========================================
+   Section Number Label
+========================================= */
+.section-num {
+    position: absolute;
+    right: 14px;
+    top: 22px;
+    writing-mode: vertical-rl;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .65em;
+    letter-spacing: 3px;
+    color: rgba(0, 0, 0, .15);
+    font-weight: 300;
+    z-index: 20;
+}
+
+.section-num--light {
+    color: rgba(255, 255, 255, .3);
+}
+
+/* =========================================
+   01. HERO
+========================================= */
+.hero {
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(0, 0, 0, .25) 0%,
+            rgba(0, 0, 0, .02) 40%,
+            rgba(0, 0, 0, .02) 55%,
+            rgba(0, 0, 0, .45) 100%);
+}
+
+.hero-content {
+    text-align: center;
+    color: #fff;
+    z-index: 10;
+    padding: 0 30px;
+    animation: heroFadeIn 1.8s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-kor-sub {
+    font-size: .8em;
+    letter-spacing: 6px;
+    font-weight: 200;
+    opacity: .85;
+    margin-bottom: 10px;
+    animation: heroFadeIn 1.8s cubic-bezier(.22, 1, .36, 1) 0.3s both;
+}
+
+.hero-script {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.4em;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, .2);
+    animation: heroFadeIn 1.8s cubic-bezier(.22, 1, .36, 1) 0.5s both;
+}
+
+.hero-names {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 1.15em;
+    font-weight: 300;
+    letter-spacing: 5px;
+    animation: heroFadeIn 1.8s cubic-bezier(.22, 1, .36, 1) 0.7s both;
+}
+
+.amp {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    opacity: .6;
+    font-size: .9em;
+}
+
+.hero-date {
+    font-size: .82em;
+    opacity: .75;
+    letter-spacing: 3px;
+    font-weight: 300;
+    margin-top: 6px;
+    animation: heroFadeIn 1.8s cubic-bezier(.22, 1, .36, 1) 0.9s both;
+}
+
+.hero-hall {
+    font-size: .75em;
+    opacity: .55;
+    letter-spacing: 2px;
+    font-weight: 300;
+    margin-top: 4px;
+    animation: heroFadeIn 1.8s cubic-bezier(.22, 1, .36, 1) 1s both;
+}
+
+/* =========================================
+   Photo Overlay Section
+========================================= */
+.photo-overlay-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.overlay-bg-img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    min-height: 320px;
+    filter: brightness(.75);
+}
+
+.overlay-bg-img--framed {
+    width: 85%;
+    margin: 0 auto;
+    display: block;
+    border-radius: 6px;
+    filter: brightness(.9);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .15);
+}
+
+.photo-overlay--pink {
+    background: linear-gradient(180deg, #f0e6de, #ede2da);
+    padding: 40px 0;
+}
+
+.overlay-text-box {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.overlay-script {
+    font-family: 'Great Vibes', cursive;
+    color: #fff;
+    font-size: 2.8em;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, .3);
+    letter-spacing: 2px;
+}
+
+.overlay-sub {
+    color: rgba(255, 255, 255, .75);
+    font-size: .88em;
+    letter-spacing: 4px;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+/* Handwritten text on photo */
+.handwrite-on-photo {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 5;
+    width: 50%;
+}
+
+.handwrite-line {
+    font-family: 'Nanum Myeongjo', 'Noto Serif KR', serif;
+    color: rgba(255, 255, 255, .9);
+    font-size: .95em;
+    font-weight: 400;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, .4);
+    letter-spacing: 2px;
+    line-height: 2.2;
+    font-style: italic;
+}
+
+.handwrite-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, .3));
+}
+
+/* =========================================
+   Sections Common
+========================================= */
+.section {
+    padding: 80px 32px;
+    text-align: center;
+    position: relative;
+}
+
+.section--pink {
+    background: linear-gradient(180deg, #f0e6de 0%, #ede2da 100%);
+}
+
+.section--white {
+    background: #faf9f7;
+}
+
+.section-eng-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .85em;
+    letter-spacing: 6px;
+    margin-bottom: 35px;
+    font-weight: 400;
+    color: #bbb;
+    text-transform: uppercase;
+}
+
+/* Decorative divider between sections */
+.section-divider {
+    width: 1px;
+    height: 40px;
+    background: #ddd;
+    margin: 0 auto 0;
+    opacity: .5;
+}
+
+/* =========================================
+   02. Greeting
+========================================= */
+.greeting-block {
+    max-width: 340px;
+    margin: 0 auto;
+}
+
+.greeting-handwrite {
+    font-family: 'Nanum Myeongjo', 'Noto Serif KR', serif;
+    font-size: .9em;
+    color: #5a5050;
+    line-height: 2.6;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 35px;
+}
+
+.greeting-couple-names {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.05em;
+    font-weight: 400;
+    color: #5a5050;
+    letter-spacing: 4px;
+}
+
+.dot-sep {
+    color: #c4908c;
+    font-size: 1.3em;
+}
+
+/* =========================================
+   03. Gallery (consistent 2-col grid)
+========================================= */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3px;
+}
+
+.gallery-img-wrap {
+    overflow: hidden;
+}
+
+.gallery-img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: transform .4s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.04);
+}
+
+.gallery-extra-wrap {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 3px;
+    transition: height 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.6s ease 0.1s;
+    will-change: height, opacity;
+    transform: translateZ(0);
+    pointer-events: none;
+}
+
+.gallery-extra-wrap.show {
+    /* height is set dynamically by JS */
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.gallery-toggle-btn {
+    margin: 25px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background: transparent;
+    color: #aaa;
+    cursor: pointer;
+    font-size: .9em;
+    transition: all .25s ease;
+}
+
+.gallery-toggle-btn:hover {
+    border-color: #bbb;
+    color: #666;
+    background: rgba(0, 0, 0, .02);
+}
+
+.gallery-toggle-btn i {
+    transition: transform .3s ease;
+}
+
+/* =========================================
+   04. Calendar
+========================================= */
+.calendar-wrap {
+    max-width: 300px;
+    margin: 0 auto 25px;
+    background: rgba(255, 255, 255, .5);
+    border-radius: 14px;
+    padding: 25px 20px;
+}
+
+.cal-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.cal-month {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5em;
+    font-weight: 400;
+    color: #c4908c;
+    letter-spacing: 3px;
+}
+
+.cal-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .95em;
+    font-weight: 300;
+    color: #aaa;
+    letter-spacing: 2px;
+}
+
+.cal-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .85em;
+    color: #666;
+    table-layout: fixed;
+}
+
+.cal-table th,
+.cal-table td {
+    padding: 9px 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.cal-table th {
+    font-weight: 300;
+    font-size: .72em;
+    color: #bbb;
+    letter-spacing: 1px;
+    padding-bottom: 14px;
+}
+
+.cal-table td {
+    font-weight: 300;
+}
+
+.cal-table .sun {
+    color: #d4908a;
+}
+
+.cal-table .sat {
+    color: #8a9ec0;
+}
+
+/* Heart marker */
+.wedding-td {
+    position: relative;
+}
+
+.heart-mark {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    font-weight: 400;
+    font-size: .85em;
+}
+
+.heart-mark::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28px;
+    height: 26px;
+    background: #d4908a;
+    z-index: -1;
+    clip-path: path('M14,24 C14,24 2,17 2,8.5 C2,3.8 5.5,.9 9.2,.9 C11.5,.9 13.3,2.3 14,3.7 C14.7,2.3 16.5,.9 18.8,.9 C22.5,.9 26,3.8 26,8.5 C26,17 14,24 14,24 Z');
+}
+
+.wedding-datetime {
+    font-size: .85em;
+    color: #888;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.dday-line {
+    font-size: .75em;
+    color: #8b605c;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-top: 24px;
+}
+
+/* Countdown Timer */
+.countdown-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0, 0, 0, .06);
+}
+
+.countdown-item {
+    text-align: center;
+    min-width: 52px;
+}
+
+.countdown-num {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8em;
+    font-weight: 500;
+    color: #a06e6a;
+    line-height: 1.2;
+}
+
+.countdown-label {
+    display: block;
+    font-size: .6em;
+    color: #888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-top: 4px;
+}
+
+.countdown-colon {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5em;
+    color: #a06e6a;
+    align-self: flex-start;
+    padding-top: 4px;
+}
+
+/* =========================================
+   05. Location
+========================================= */
+.loc-name {
+    font-size: 1.05em;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #3a3a3a;
+    letter-spacing: 1.5px;
+}
+
+.loc-addr-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 10px auto 25px;
+    max-width: 380px;
+}
+
+.loc-addr {
+    font-size: .82em;
+    color: #888;
+    margin-bottom: 0;
+    font-weight: 300;
+    line-height: 1.6;
+    text-align: left;
+    flex: 1;
+}
+
+.addr-copy-btn {
+    flex-shrink: 0;
+}
+
+.map-container {
+    width: 100%;
+    height: 260px;
+    min-height: 260px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+    background: #f5f5f5;
+}
+
+.nav-btns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7px;
+    margin-top: 18px;
+}
+
+.nav-btns a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 11px 6px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    font-size: .8em;
+    color: #666;
+    text-decoration: none;
+    background: #fafafa;
+    font-family: 'Noto Serif KR', serif;
+    transition: all .2s;
+}
+
+.nav-btns a:hover {
+    background: #f0f0f0;
+    border-color: #ccc;
+    color: #333;
+}
+
+.nav-btns a i {
+    font-size: .85em;
+    color: #999;
+}
+
+/* =========================================
+   Transportation Tabs
+========================================= */
+.transport-wrap {
+    margin-top: 24px;
+    text-align: left;
+}
+
+.transport-tabs {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0;
+}
+
+.transport-tab {
+    flex: 1;
+    padding: 11px 6px;
+    border: none;
+    background: transparent;
+    font-family: 'Noto Serif KR', serif;
+    font-size: .78em;
+    color: #bbb;
+    cursor: pointer;
+    text-align: center;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all .25s;
+    letter-spacing: .5px;
+}
+
+.transport-tab i {
+    display: block;
+    font-size: 1.25em;
+    margin-bottom: 4px;
+    color: #ddd;
+    transition: color .25s;
+}
+
+.transport-tab.active {
+    color: #c4908c;
+    border-bottom-color: #c4908c;
+}
+
+.transport-tab.active i {
+    color: #c4908c;
+}
+
+.transport-content {
+    display: none;
+    padding: 18px 4px 8px;
+    animation: tabFadeIn .3s ease;
+}
+
+.transport-content.active {
+    display: block;
+}
+
+@keyframes tabFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.transport-item {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.transport-desc {
+    font-size: .8em;
+    color: #888;
+    line-height: 1.7;
+    font-weight: 300;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, .6);
+    border-radius: 8px;
+    border-left: 2px solid #d4b5b2;
+}
+
+.transport-route {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 6px 10px;
+    align-items: baseline;
+    font-size: .8em;
+    line-height: 1.7;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, .04);
+}
+
+.transport-route:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.route-label {
+    font-size: .88em;
+    font-weight: 500;
+    color: #c4908c;
+    white-space: nowrap;
+    padding-top: 2px;
+}
+
+.route-text {
+    color: #777;
+    font-weight: 300;
+    word-break: keep-all;
+    line-height: 1.8;
+    padding-left: 4px;
+}
+
+.bus-type {
+    display: inline-block;
+    font-size: .75em;
+    background: #f0e8e8;
+    color: #b07070;
+    border-radius: 3px;
+    padding: 1px 5px;
+    margin-right: 2px;
+    font-weight: 400;
+    vertical-align: middle;
+}
+
+/* =========================================
+   06. Gift / Accounts
+========================================= */
+.gift-sub {
+    font-size: .82em;
+    color: #999;
+    font-weight: 300;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* New Gift Tab Buttons */
+.gift-tab-btns {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.gift-tab-btn {
+    border: 1px solid #d4b5b2;
+    background: #fff;
+    color: #c4908c;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-size: 0.95em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.gift-tab-btn.active {
+    background: #d4b5b2;
+    color: #fff;
+}
+
+.gift-expand-area {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease 0.1s;
+    will-change: max-height, opacity;
+    pointer-events: none;
+}
+
+.gift-expand-area.show {
+    max-height: 800px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.gift-q {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.gift-faces {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.gift-face-btn {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+    padding: 0;
+    transition: transform 0.2s ease;
+}
+
+.gift-face-btn:active {
+    transform: scale(0.95);
+}
+
+.face-circle {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid rgba(212, 181, 178, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+    color: #555;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.gift-face-btn.active .face-circle {
+    background: #fdfaf8;
+    border-color: #d4b5b2;
+    font-weight: 500;
+    color: #c4908c;
+    box-shadow: 0 4px 12px rgba(212, 181, 178, 0.2);
+}
+
+.face-name {
+    font-size: 0.85em;
+    color: #777;
+    font-weight: 300;
+}
+
+.gift-acc-cards {
+    width: 100%;
+}
+
+.gift-acc-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.acc-c-bank {
+    font-size: 0.85em;
+    color: #999;
+    margin-bottom: 6px;
+}
+
+.acc-c-num {
+    font-size: 1.15em;
+    color: #444;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    font-weight: 400;
+}
+
+.acc-c-name {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.copy-btn-new {
+    background: #fdfaf8;
+    border: 1px solid #eee;
+    color: #666;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.copy-btn-new i {
+    margin-right: 5px;
+    color: #bbb;
+}
+
+.copy-btn-new:hover {
+    background: #f5f0ed;
+    color: #555;
+}
+
+
+.copy-btn {
+    flex-shrink: 0;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    background: rgba(255, 255, 255, .7);
+    font-size: .75em;
+    cursor: pointer;
+    color: #888;
+    font-family: 'Noto Serif KR', serif;
+    transition: all .25s;
+    white-space: nowrap;
+}
+
+.copy-btn:hover {
+    background: #fff;
+    border-color: rgba(0, 0, 0, .18);
+    color: #444;
+}
+
+/* =========================================
+   Swipeable Gallery Modal
+========================================= */
+.g-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility .3s ease;
+    touch-action: none;
+    user-select: none;
+}
+
+.g-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.g-modal-img {
+    max-width: 92%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 4px;
+    user-select: none;
+    -webkit-user-drag: none;
+    transition: opacity .25s ease;
+    touch-action: none;
+}
+
+.g-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, .6);
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 10001;
+    transition: color .2s;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.g-modal-close:hover {
+    color: #fff;
+}
+
+.g-modal-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, .08);
+    border: none;
+    color: rgba(255, 255, 255, .6);
+    font-size: 1.1em;
+    cursor: pointer;
+    z-index: 10001;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .25s;
+}
+
+.g-modal-arrow:hover {
+    background: rgba(255, 255, 255, .18);
+    color: #fff;
+}
+
+.g-modal-prev {
+    left: 10px;
+}
+
+.g-modal-next {
+    right: 10px;
+}
+
+.g-modal-counter {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, .4);
+    font-size: .8em;
+    letter-spacing: 2px;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* =========================================
+   Footer
+========================================= */
+.footer {
+    padding: 50px 20px 40px;
+    text-align: center;
+    background: #2c2828;
+}
+
+.ft-script {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.7em;
+    color: rgba(255, 255, 255, .45);
+    margin-bottom: 8px;
+}
+
+.ft-names {
+    font-size: .78em;
+    letter-spacing: 4px;
+    color: rgba(255, 255, 255, .28);
+    font-weight: 300;
+}
+
+/* =========================================
+   BGM Toggle
+========================================= */
+.bgm-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c4908c;
+    font-size: 0.85em;
+    transition: all 0.3s ease;
+}
+
+.bgm-toggle:hover {
+    background: rgba(255, 255, 255, 0.85);
+    transform: scale(1.05);
+}
+
+.bgm-toggle.playing {
+    animation: pulse-bgm 2s infinite;
+}
+
+@keyframes pulse-bgm {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    50% {
+        transform: scale(1.08);
+        box-shadow: 0 4px 24px rgba(196, 144, 140, 0.25);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+}
+
+/* =========================================
+   Scroll Reveal Animations
+========================================= */
+.fade-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .9s cubic-bezier(.22, 1, .36, 1),
+        transform .9s cubic-bezier(.22, 1, .36, 1);
+}
+
+.fade-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered children animation */
+.fade-child {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .7s cubic-bezier(.22, 1, .36, 1),
+        transform .7s cubic-bezier(.22, 1, .36, 1);
+}
+
+.fade-child.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays for children */
+.fade-child:nth-child(1) {
+    transition-delay: 0s;
+}
+
+.fade-child:nth-child(2) {
+    transition-delay: .1s;
+}
+
+.fade-child:nth-child(3) {
+    transition-delay: .2s;
+}
+
+.fade-child:nth-child(4) {
+    transition-delay: .25s;
+}
+
+.fade-child:nth-child(5) {
+    transition-delay: .3s;
+}
+
+/* =========================================
+   Responsive
+========================================= */
+@media(max-width:380px) {
+    .hero-script {
+        font-size: 2.8em;
+    }
+
+    .hero-names {
+        font-size: 1em;
+        letter-spacing: 2px;
+    }
+
+    .section {
+        padding: 60px 22px;
+    }
+
+    .overlay-script {
+        font-size: 2.2em;
+    }
+
+    .countdown-num {
+        font-size: 1.5em;
+    }
+
+    .countdown-item {
+        min-width: 44px;
+    }
+}

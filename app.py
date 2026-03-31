@@ -41,7 +41,7 @@ def index():
         'bride_name': '{BRIDE_NAME}',
         'bride_account': '{BRIDE_ACCOUNT}',
         'bride_account_bank': '{BRIDE_ACCOUNT_BANK}',
-        'bride_phone': '{BRIDGE_PHONE}',
+        'bride_phone': '{BRIDE_PHONE}',
 
         'groom_father_name': '{GROOM_FATHER_NAME}',
         'groom_father_account_bank': '{GROOM_FATHER_ACCOUNT_BANK}',

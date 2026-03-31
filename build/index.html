@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sks3297.github.io/wedding-invitation/">
+    <meta property="og:title" content="기성 & 해솔의 결혼식에 초대합니다">
+    <meta property="og:description" content="2026년 5월 2일, 저희의 시작을 함께해주세요.">
+    <meta property="og:image" content="https://sks3297.github.io/wedding-invitation/static/images/share_image.jpg">
+    <title>결혼합니다</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Nanum+Myeongjo:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/wedding-invitation/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- BGM Toggle Button -->
+        <button id="bgm-toggle-btn" class="bgm-toggle">
+            <i class="fas fa-play"></i>
+        </button>
+        <audio id="main-bgm" loop playsinline preload="auto">
+            <source src="/wedding-invitation/static/bgm/bgm.mp3" type="audio/mpeg">
+        </audio>
+
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                var bgm = document.getElementById('main-bgm');
+                var bgmBtn = document.getElementById('bgm-toggle-btn');
+                var bgmIcon = bgmBtn ? bgmBtn.querySelector('i') : null;
+
+                function updateUI(isPlaying) {
+                    if (!bgmBtn || !bgmIcon) return;
+                    if (isPlaying) {
+                        bgmIcon.className = 'fas fa-pause';
+                        bgmBtn.classList.add('playing');
+                    } else {
+                        bgmIcon.className = 'fas fa-play';
+                        bgmBtn.classList.remove('playing');
+                    }
+                }
+
+                // Default Off
+                bgm.muted = false;
+                updateUI(false);
+
+                window.toggleBGM = function () {
+                    if (bgm.paused) {
+                        bgm.play().then(function () { updateUI(true); });
+                    } else {
+                        bgm.pause();
+                        updateUI(false);
+                    }
+                };
+
+                // Pause BGM when tab is hidden or app minimized
+                document.addEventListener('visibilitychange', function () {
+                    if (document.hidden && !bgm.paused) {
+                        bgm.pause();
+                        updateUI(false);
+                    }
+                });
+            });
+        </script>
+
+        <!-- ======== 01. HERO: Dark + Cherry blossoms ======== -->
+        <header class="hero" style="background-image: url(/wedding-invitation/static/images/main_couple.jpg);">
+            <!-- <div class="section-num section-num--light">01. 표지</div> -->
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <p class="hero-kor-sub">우리 결혼합니다</p>
+                <h1 class="hero-script">Our Wedding</h1>
+                <div class="hero-names">
+                    <span>{GROOM_NAME}</span>
+                    <span class="amp">&amp;</span>
+                    <span>{BRIDE_NAME}</span>
+                </div>
+                <p class="hero-date">2026년 5월 2일 토요일 오전 11시 30분</p>
+                <p class="hero-hall">더 세인트</p>
+            </div>
+        </header>
+
+        <!-- ======== Couple Photo with Script Overlay ======== -->
+        <section class="photo-overlay-section">
+            <img src="/wedding-invitation/static/images/gallery_01.jpg" alt="커플" class="overlay-bg-img">
+            <div class="overlay-text-box">
+                <p class="overlay-script">Our Wedding</p>
+            </div>
+        </section>
+
+        <!-- ======== 02. 인사말 (Pink) ======== -->
+        <section class="section section--pink fade-item">
+            <!-- <div class="section-num">인사말</div> -->
+            <div class="greeting-block">
+                <div class="greeting-handwrite fade-child">
+                    <p>마음을 같이하여</p>
+                    <p>같은 사랑을 품고</p>
+                    <p>한뜻, 한마음으로 살아가겠습니다.</p>
+                    <br>
+                    <p>저희 두 사람이 부부가 되는</p>
+                    <p>5월의 아름다운 날,</p>
+                    <p>귀한 걸음으로 축복해 주시면 감사하겠습니다.</p>
+                </div>
+                <div class="greeting-couple-names fade-child">
+                    <span>{GROOM_NAME}</span>
+                    <span class="dot-sep">·</span>
+                    <span>{BRIDE_NAME}</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="photo-overlay-section photo-overlay--pink" style="padding-top: 0;">
+            <!-- <img src="/wedding-invitation/static/images/overlay_image.png" alt="신랑신부"
+                class="overlay-bg-img overlay-bg-img--framed"> -->
+            <img src="/wedding-invitation/static/images/overlay_image.png" alt="커플" class="overlay-bg-img"
+                style="height: 100%;">
+
+            <div class="handwrite-on-photo" style="left: 30%;">
+                <img src="/wedding-invitation/static/images/message-man.png" alt="신랑_메시지"
+                    class="handwrite-img">
+            </div>
+            <div class="handwrite-on-photo"
+                style="top: 80%; bottom: auto; transform: translate(-50%, -50%); left: 75%;">
+                <img src="/wedding-invitation/static/images/message-man.png" alt="신부_메시지"
+                    class="handwrite-img">
+            </div>
+        </section>
+
+        <!-- ======== Photo with handwriting overlay (Groom) ======== -->
+        <!-- <section class="photo-overlay-section photo-overlay--pink" style="padding-bottom: 50px;">
+            <img src="/wedding-invitation/static/images/gallery_07.jpg" alt="신랑"
+                class="overlay-bg-img overlay-bg-img--framed">
+            <div class="handwrite-on-photo"
+                style="top: 80%; bottom: auto; transform: translate(-50%, -50%); left: 75%;">
+                <img src="/wedding-invitation/static/images/message-man.png" alt="메시지" class="handwrite-img">
+            </div>
+        </section> -->
+
+        <!-- ======== Photo with handwriting overlay (Bride) ======== -->
+        <!-- <section class="photo-overlay-section photo-overlay--pink" style="padding-top: 0;">
+            <img src="/wedding-invitation/static/images/gallery_08.jpg" alt="신부"
+                class="overlay-bg-img overlay-bg-img--framed">
+            <div class="handwrite-on-photo">
+                <img src="/wedding-invitation/static/images/message-woman.png" alt="메시지" class="handwrite-img">
+            </div>
+        </section> -->
+
+        <!-- ======== 03. 갤러리 ======== -->
+        <section class="section section--white fade-item">
+            <!-- <div class="section-num">갤러리</div> -->
+            <h2 class="section-eng-title fade-child">GALLERY</h2>
+            <div class="gallery" id="gallery-grid">
+                <div class="gallery-img-wrap">
+                    <img src="/wedding-invitation/static/images/gallery_01.jpg" alt="사진 1" class="gallery-img"
+                        data-index="0">
+                </div>
+                <div class="gallery-img-wrap">
+                    <img src="/wedding-invitation/static/images/gallery_02.jpg" alt="사진 2" class="gallery-img"
+                        data-index="1">
+                </div>
+                <div class="gallery-img-wrap">
+                    <img src="/wedding-invitation/static/images/gallery_03.jpg" alt="사진 3" class="gallery-img"
+                        data-index="2">
+                </div>
+                <div class="gallery-img-wrap">
+                    <img src="/wedding-invitation/static/images/gallery_04.jpg" alt="사진 4" class="gallery-img"
+                        data-index="3">
+                </div>
+            </div>
+
+            <div class="gallery-extra-wrap" id="gallery-extra-wrap">
+                <div class="gallery">
+                    <div class="gallery-img-wrap">
+                        <img src="/wedding-invitation/static/images/gallery_05.jpg" alt="사진 5"
+                            class="gallery-img" data-index="4">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="/wedding-invitation/static/images/gallery_06.jpg" alt="사진 6"
+                            class="gallery-img" data-index="5">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="/wedding-invitation/static/images/gallery_07.jpg" alt="사진 7"
+                            class="gallery-img" data-index="6">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="/wedding-invitation/static/images/gallery_08.jpg" alt="사진 8"
+                            class="gallery-img" data-index="7">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="/wedding-invitation/static/images/gallery_09.jpg" alt="사진 9"
+                            class="gallery-img" data-index="8">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="/wedding-invitation/static/images/gallery_10.jpg" alt="사진 10"
+                            class="gallery-img" data-index="9">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="/wedding-invitation/static/images/gallery_11.jpg" alt="사진 11"
+                            class="gallery-img" data-index="10">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="/wedding-invitation/static/images/gallery_12.jpg" alt="사진 12"
+                            class="gallery-img" data-index="11">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="/wedding-invitation/static/images/gallery_13.jpg" alt="사진 13"
+                            class="gallery-img" data-index="12">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="/wedding-invitation/static/images/gallery_14.jpg" alt="사진 14"
+                            class="gallery-img" data-index="13">
+                    </div>
+                    <div class="gallery-img-wrap">
+                        <img src="/wedding-invitation/static/images/gallery_15.jpg" alt="사진 15"
+                            class="gallery-img" data-index="14">
+                    </div>
+                </div>
+            </div>
+            <button id="toggle-gallery-btn" class="gallery-toggle-btn">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </section>
+
+        <!-- ======== Full-width photo with script ======== -->
+        <section class="photo-overlay-section">
+            <img src="/wedding-invitation/static/images/gallery_03.jpg" alt="커플" class="overlay-bg-img">
+            <div class="overlay-text-box">
+                <p class="overlay-script">Our Wedding</p>
+                <p class="overlay-sub">{GROOM_NAME} &amp; {BRIDE_NAME}</p>
+            </div>
+        </section>
+
+        <section class="section section--pink fade-item">
+            <!-- <div class="section-num">예식일</div> -->
+            <h2 class="section-eng-title fade-child">WEDDING DAY</h2>
+            <div class="calendar-wrap fade-child">
+                <div class="cal-head">
+                    <span class="cal-month">MAY</span>
+                    <span class="cal-year">2026</span>
+                </div>
+                <table class="cal-table">
+                    <thead>
+                        <tr>
+                            <th class="sun">S</th>
+                            <th>M</th>
+                            <th>T</th>
+                            <th>W</th>
+                            <th>T</th>
+                            <th>F</th>
+                            <th class="sat">S</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>1</td>
+                            <td class="sat wedding-td"><span class="heart-mark">2</span></td>
+                        </tr>
+                        <tr>
+                            <td class="sun">3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td class="sat">9</td>
+                        </tr>
+                        <tr>
+                            <td class="sun">10</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                            <td>14</td>
+                            <td>15</td>
+                            <td class="sat">16</td>
+                        </tr>
+                        <tr>
+                            <td class="sun">17</td>
+                            <td>18</td>
+                            <td>19</td>
+                            <td>20</td>
+                            <td>21</td>
+                            <td>22</td>
+                            <td class="sat">23</td>
+                        </tr>
+                        <tr>
+                            <td class="sun">24</td>
+                            <td>25</td>
+                            <td>26</td>
+                            <td>27</td>
+                            <td>28</td>
+                            <td>29</td>
+                            <td class="sat">30</td>
+                        </tr>
+                        <tr>
+                            <td class="sun">31</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="wedding-datetime fade-child">2026. 05. 02. SAT &nbsp;|&nbsp; AM 11:30</p>
+            <div class="countdown-wrap fade-child" id="countdown-wrap">
+                <div class="countdown-item">
+                    <span class="countdown-num" id="cd-days">--</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <span class="countdown-colon">:</span>
+                <div class="countdown-item">
+                    <span class="countdown-num" id="cd-hours">--</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <span class="countdown-colon">:</span>
+                <div class="countdown-item">
+                    <span class="countdown-num" id="cd-mins">--</span>
+                    <span class="countdown-label">Min</span>
+                </div>
+                <span class="countdown-colon">:</span>
+                <div class="countdown-item">
+                    <span class="countdown-num" id="cd-secs">--</span>
+                    <span class="countdown-label">Sec</span>
+                </div>
+            </div>
+            <p class="dday-line fade-child" id="dday-text">우리 예식까지 남은 시간, <span id="cd-total-days">--</span>일</p>
+        </section>
+
+        <!-- ======== 05. 오시는 길 ======== -->
+        <section class="section section--white fade-item">
+            <!-- <div class="section-num">오시는 길</div> -->
+            <h2 class="section-eng-title fade-child">LOCATION</h2>
+            <p class="loc-name fade-child">더 세인트</p>
+            <div id="map" class="map-container"
+                style="display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.8em; text-align: center; padding: 20px;">
+                <div id="map-placeholder">지도를 불러오는 중입니다...<br><span style="font-size: 0.85em; opacity: 0.7;">(5초 이상 지속될
+                        경우 API 키 혹은 도메인 설정을 확인해주세요)</span></div>
+            </div>
+            <!-- <div class="nav-btns">
+                <a href="https://map.kakao.com/link/to/더 세인트,37.508628,126.888733"
+                    target="_blank"><i class="fas fa-map-marker-alt"></i> 카카오맵</a>
+                <a href="https://map.naver.com/p/directions/-/14125326.780382,4510271.9646786,%EB%8D%94%EC%84%B8%EC%9D%B8%ED%8A%B8,1616363001,PLACE_POI/-/car?c=15.00,0,0,0,dh"
+                    target="_blank"><i class="fas fa-map"></i> 네이버지도</a>
+                <a href="kakaonavi://route?name=더 세인트&amp;x=126.888733&amp;y=37.508628&amp;p=1"
+                    target="_blank"><i class="fas fa-car"></i> 카카오내비</a>
+                <a href="tmap://route?name=더 세인트&amp;lon=126.888733&amp;lat=37.508628&amp;version=1"
+                    target="_blank"><i class="fas fa-route"></i> T맵</a>
+            </div> -->
+            <div class="loc-addr-wrap">
+                <p class="loc-addr">서울특별시 구로구 경인로 662 디큐브시티 6층-그랜드볼룸</p>
+                <button class="copy-btn addr-copy-btn" data-copy="서울특별시 구로구 경인로 662 디큐브시티 6층-그랜드볼룸">복사</button>
+            </div>
+
+            <!-- 교통편 안내 탭 -->
+            <div class="transport-wrap">
+                <div class="transport-tabs">
+                    <button class="transport-tab active" data-tab="car">
+                        <i class="fas fa-car"></i> 승용차
+                    </button>
+                    <button class="transport-tab" data-tab="subway">
+                        <i class="fas fa-subway"></i> 지하철
+                    </button>
+                    <button class="transport-tab" data-tab="bus">
+                        <i class="fas fa-bus"></i> 버스
+                    </button>
+                </div>
+
+                <div class="transport-content" id="tab-subway">
+                    <div class="transport-item">
+                        <p class="transport-desc">1, 2호선 신도림역 1번출구에서 왼쪽 지하도로 연결</p>
+                        <!-- <div class="transport-route">
+                            <span class="route-label">김포국제공항 출발</span>
+                            <span class="route-text">5호선 김포공항역 → 까치산역에서 2호선 환승 → 신도림역 하차</span>
+                        </div>
+                        <div class="transport-route">
+                            <span class="route-label">인천국제공항 출발</span>
+                            <span class="route-text">공항철도 인천공항 1터미널역 또는 인천공항 2터미널역 → 홍대입구역에서 2호선 환승 → 신도림역 하차</span>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="transport-content" id="tab-bus">
+                    <div class="transport-item">
+                        <div class="transport-route">
+                            <span class="route-label">신도림역 2번 출구</span>
+                            <span class="route-text">
+                                <span class="bus-type">간선</span> 5619, 6411, 6511, 6611, 영등포01, 영등포08, 영등포09, 영등포12,
+                                영등포13
+                            </span>
+                        </div>
+                        <div class="transport-route">
+                            <span class="route-label">신도림역 1번 출구</span>
+                            <span class="route-text">
+                                <span class="bus-type">간선</span> 160, 503, 600, 660, 662<br>
+                                <span class="bus-type">지선</span> 5615, 5714, 6512, 6513, 6515, 6516, 6637, 6640B<br>
+                                <span class="bus-type">기타</span> 301, 320, 10, 11-1, 11-2(일반), 83, 88, 510, 530, 662,
+                                6018, N16, 구로09(마을), 양천04(마을)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="transport-content active" id="tab-car">
+                    <div class="transport-item">
+                        <div class="transport-route">
+                            <span class="route-label">영등포 방향</span>
+                            <span class="route-text">현대백화점 디큐브시티를 지나 좌회전 신호 받고, 오피스동 주차장 진입</span>
+                        </div>
+                        <div class="transport-route">
+                            <span class="route-label">구로 방향</span>
+                            <span class="route-text">GS주유소 우측 진입로를 이용해 우회전한 후 진입</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== 06. 마음 전하실 곳 ======== -->
+        <section class="section section--pink fade-item" id="gift-section">
+            <!-- <div class="section-num">마음 전하실 곳</div> -->
+            <h2 class="section-eng-title fade-child">GIFT</h2>
+            <p class="gift-sub fade-child">축하의 마음을 전해주세요</p>
+
+            <div class="gift-tab-btns fade-child">
+                <button class="gift-tab-btn" id="tab-groom" onclick="openGiftTab('groom')"><span>신랑측</span></button>
+                <button class="gift-tab-btn" id="tab-bride" onclick="openGiftTab('bride')"><span>신부측</span></button>
+            </div>
+
+            <div class="gift-expand-area fade-child" id="gift-expand-area">
+                <p class="gift-q">어떤 분에게 마음을 전하시겠어요?</p>
+
+                <!-- 1) Groom Faces -->
+                <div class="gift-faces" id="faces-groom" style="display: none;">
+                    <button class="gift-face-btn" onclick="showGiftAccount('groom-self', this)">
+                        <div class="face-circle">신랑</div>
+                        <span class="face-name">{GROOM_NAME}</span>
+                    </button>
+                    <button class="gift-face-btn" onclick="showGiftAccount('groom-dad', this)">
+                        <div class="face-circle">신랑</br>아버지</div>
+                        <span class="face-name">{GROOM_FATHER_NAME}</span>
+                    </button>
+                    <button class="gift-face-btn" onclick="showGiftAccount('groom-mom', this)">
+                        <div class="face-circle">신랑</br>어머니</div>
+                        <span class="face-name">{GROOM_MOTHER_NAME}</span>
+                    </button>
+                </div>
+
+                <!-- 2) Bride Faces -->
+                <div class="gift-faces" id="faces-bride" style="display: none;">
+                    <button class="gift-face-btn" onclick="showGiftAccount('bride-self', this)">
+                        <div class="face-circle">신부</div>
+                        <span class="face-name">{BRIDE_NAME}</span>
+                    </button>
+                    <button class="gift-face-btn" onclick="showGiftAccount('bride-dad', this)">
+                        <div class="face-circle">신부</br>아버지</div>
+                        <span class="face-name">{BRIDE_FATHER_NAME}</span>
+                    </button>
+                    <button class="gift-face-btn" onclick="showGiftAccount('bride-mom', this)">
+                        <div class="face-circle">신부</br>어머니</div>
+                        <span class="face-name">{BRIDE_MOTHER_NAME}</span>
+                    </button>
+                </div>
+
+                <!-- Account Result Details -->
+                <div class="gift-acc-cards" id="acc-cards-wrapper" style="display: none;">
+
+                    <div class="gift-acc-card" id="acc-groom-self" style="display: none;">
+                        <div class="acc-c-bank">{GROOM_ACCOUNT_BANK}</div>
+                        <div class="acc-c-num">{GROOM_ACCOUNT}</div>
+                        <div class="acc-c-name">예금주 : {GROOM_NAME}</div>
+                        <button class="copy-btn-new" data-copy="{GROOM_ACCOUNT}"><i class="far fa-copy"></i>
+                            계좌번호 복사</button>
+                    </div>
+                    <div class="gift-acc-card" id="acc-groom-dad" style="display: none;">
+                        <div class="acc-c-bank">{GROOM_FATHER_ACCOUNT_BANK}</div>
+                        <div class="acc-c-num">{GROOM_FATHER_ACCOUNT}</div>
+                        <div class="acc-c-name">예금주 : {GROOM_FATHER_NAME}</div>
+                        <button class="copy-btn-new" data-copy="{GROOM_FATHER_ACCOUNT}"><i
+                                class="far fa-copy"></i> 계좌번호 복사</button>
+                    </div>
+                    <div class="gift-acc-card" id="acc-groom-mom" style="display: none;">
+                        <div class="acc-c-bank">{GROOM_MOTHER_ACCOUNT_BANK}</div>
+                        <div class="acc-c-num">{GROOM_MOTHER_ACCOUNT}</div>
+                        <div class="acc-c-name">예금주 : {GROOM_MOTHER_NAME}</div>
+                        <button class="copy-btn-new" data-copy="{GROOM_MOTHER_ACCOUNT}"><i
+                                class="far fa-copy"></i> 계좌번호 복사</button>
+                    </div>
+
+                    <div class="gift-acc-card" id="acc-bride-self" style="display: none;">
+                        <div class="acc-c-bank">{BRIDE_ACCOUNT_BANK}</div>
+                        <div class="acc-c-num">{BRIDE_ACCOUNT}</div>
+                        <div class="acc-c-name">예금주 : {BRIDE_NAME}</div>
+                        <button class="copy-btn-new" data-copy="{BRIDE_ACCOUNT}"><i class="far fa-copy"></i>
+                            계좌번호 복사</button>
+                    </div>
+                    <div class="gift-acc-card" id="acc-bride-dad" style="display: none;">
+                        <div class="acc-c-bank">{BRIDE_FATHER_ACCOUNT_BANK}</div>
+                        <div class="acc-c-num">{BRIDE_FATHER_ACCOUNT}</div>
+                        <div class="acc-c-name">예금주 : {BRIDE_FATHER_NAME}</div>
+                        <button class="copy-btn-new" data-copy="{BRIDE_FATHER_ACCOUNT}"><i
+                                class="far fa-copy"></i> 계좌번호 복사</button>
+                    </div>
+                    <div class="gift-acc-card" id="acc-bride-mom" style="display: none;">
+                        <div class="acc-c-bank">{BRIDE_MOTHER_ACCOUNT_BANK}</div>
+                        <div class="acc-c-num">{BRIDE_MOTHER_ACCOUNT}</div>
+                        <div class="acc-c-name">예금주 : {BRIDE_MOTHER_NAME}</div>
+                        <button class="copy-btn-new" data-copy="{BRIDE_MOTHER_ACCOUNT}"><i
+                                class="far fa-copy"></i> 계좌번호 복사</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== Bottom Image ======== -->
+        <div style="width: 100%; font-size: 0; line-height: 0;">
+            <img src="/wedding-invitation/static/images/gallery_bottom.jpg" alt="웨딩 사진"
+                style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <footer class="footer">
+            <p class="ft-script">Our Wedding</p>
+            <p class="ft-names">{GROOM_NAME} &amp; {BRIDE_NAME}</p>
+        </footer>
+
+    </div>
+
+    <!-- ======== SWIPEABLE GALLERY MODAL ======== -->
+    <div id="gallery-modal" class="g-modal">
+        <button class="g-modal-close" id="modal-close-btn"><i class="fas fa-times"></i></button>
+        <button class="g-modal-arrow g-modal-prev" id="modal-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="g-modal-arrow g-modal-next" id="modal-next"><i class="fas fa-chevron-right"></i></button>
+        <img id="modal-img" class="g-modal-img" src="">
+        <div class="g-modal-counter" id="modal-counter">1 / 7</div>
+    </div>
+
+    <!-- MAP API -->
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey={KAKAO_MAP_API_KEY}&autoload=false"></script>
+
+    <script>
+        // Use passive: false to allow preventDefault()
+        const preventOptions = { passive: false };
+
+        // 1. Double-tap zoom prevention (for older iOS Safari)
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, preventOptions);
+
+        // 2. Pinch-zoom prevention (Initial touch)
+        document.addEventListener('touchstart', function (event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, preventOptions);
+
+        // 3. Pinch-zoom prevention (Movement) - CRITICAL for scroll-time zoom
+        document.addEventListener('touchmove', function (event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, preventOptions);
+
+        // 4. iOS Gesture prevention (Pinch/Rotate)
+        document.addEventListener('gesturestart', function (event) { event.preventDefault(); }, preventOptions);
+        document.addEventListener('gesturechange', function (event) { event.preventDefault(); }, preventOptions);
+
+        // 5. Desktop Trackpad/Mouse zoom prevention (Ctrl + Wheel)
+        document.addEventListener('wheel', function (event) {
+            if (event.ctrlKey) {
+                event.preventDefault();
+            }
+        }, preventOptions);
+    </script>
+
+    <script>
+        /* ===== GLOBAL DATA ===== */
+        var WEDDING_LAT = parseFloat("37.508628");
+        var WEDDING_LNG = parseFloat("126.888733");
+        var kmap = null;
+        var mapCenter = null;
+
+        /* ===== FADE EFFECT ===== */
+        function fadeCheck() {
+            var els = document.querySelectorAll('.fade-item');
+            var threshold = window.innerHeight * 0.9;
+            els.forEach(function (el) {
+                if (!el.classList.contains('visible') && el.getBoundingClientRect().top < threshold) {
+                    el.classList.add('visible');
+
+                    // Reveal fade-child elements incrementally
+                    var children = el.querySelectorAll('.fade-child');
+                    children.forEach(function (child, i) {
+                        setTimeout(function () {
+                            child.classList.add('visible');
+                        }, 120 * i);
+                    });
+
+                    // If this is the map section, trigger a redraw to fix mobile rendering
+                    if (el.querySelector('#map') && kmap) {
+                        console.log("Map section visible, triggering relayout (1000ms delay)");
+                        setTimeout(function () {
+                            kmap.relayout();
+                            kmap.setCenter(mapCenter);
+                        }, 1000); // 0.8s transition + 0.2s margin
+                    }
+                }
+            });
+        }
+        window.addEventListener('scroll', fadeCheck);
+        window.addEventListener('load', fadeCheck);
+
+        /* ===== KAKAO MAP ===== */
+        var mapLoaded = false;
+        function initMap() {
+            if (mapLoaded) return;
+
+            if (typeof kakao === 'undefined' || !kakao.maps) {
+                console.log("Kakao SDK not ready yet, retrying in 500ms");
+                setTimeout(initMap, 500);
+                return;
+            }
+
+            kakao.maps.load(function () {
+                try {
+                    var mapEl = document.getElementById('map');
+                    if (!mapEl) return;
+
+                    mapCenter = new kakao.maps.LatLng(WEDDING_LAT, WEDDING_LNG);
+                    var opts = {
+                        center: mapCenter,
+                        level: 3
+                    };
+                    kmap = new kakao.maps.Map(mapEl, opts);
+
+                    var marker = new kakao.maps.Marker({
+                        position: mapCenter
+                    });
+                    marker.setMap(kmap);
+
+                    mapLoaded = true;
+                    var placeholder = document.getElementById('map-placeholder');
+                    if (placeholder) placeholder.style.display = 'none';
+                    mapEl.style.background = 'transparent';
+
+                    // Mobile rendering stability
+                    console.log("Map initialized successfully");
+                    [500, 1500, 3000].forEach(delay => {
+                        setTimeout(function () {
+                            if (kmap) {
+                                kmap.relayout();
+                                kmap.setCenter(mapCenter);
+                            }
+                        }, delay);
+                    });
+                } catch (e) {
+                    console.error("Map Error:", e);
+                    var placeholder = document.getElementById('map-placeholder');
+                    if (placeholder) {
+                        placeholder.innerHTML = "지도를 불러오지 못했습니다.<br><span style='color: #d9534f;'>Kakao 플랫폼 설정(도메인)을 확인해주세요.</span>";
+                    }
+                }
+            });
+        }
+
+        // Diagnostic Timeout: If map not loaded in 7 seconds
+        setTimeout(function () {
+            if (!mapLoaded) {
+                var placeholder = document.getElementById('map-placeholder');
+                if (placeholder) {
+                    placeholder.innerHTML = "지도가 로드되지 않고 있습니다.<br><span style='color: #d9534f;'>Kakao 개발자 센터의 '내 애플리케이션 > 플랫폼'에<br>현재 도메인이 등록되어 있는지 확인해주세요.</span>";
+                }
+            }
+        }, 7000);
+
+        // Try initialization multiple times
+        window.addEventListener('load', initMap);
+        initMap(); // Immediate attempt
+
+
+        /* ===== GALLERY TOGGLE ===== */
+        var togBtn = document.getElementById('toggle-gallery-btn');
+        var galleryExtraWrap = document.getElementById('gallery-extra-wrap');
+        var galleryOpen = false;
+
+        if (togBtn && galleryExtraWrap) {
+            togBtn.addEventListener('click', function () {
+                galleryOpen = !galleryOpen;
+                var ic = togBtn.querySelector('i');
+
+                if (galleryOpen) {
+                    // 1) height를 명시적으로 0으로 고정
+                    galleryExtraWrap.style.height = '0';
+                    galleryExtraWrap.classList.add('show');
+                    // 2) 강제 리플로우 → 브라우저가 height:0 상태를 인식
+                    void galleryExtraWrap.offsetHeight;
+                    // 3) 실제 높이로 설정 → transition 발동
+                    galleryExtraWrap.style.height = galleryExtraWrap.scrollHeight + 'px';
+                    // 4) 애니메이션 끝나면 auto로 전환 (리사이즈 대응)
+                    galleryExtraWrap.addEventListener('transitionend', function onOpen(e) {
+                        if (e.propertyName !== 'height') return;
+                        galleryExtraWrap.removeEventListener('transitionend', onOpen);
+                        if (galleryOpen) galleryExtraWrap.style.height = 'auto';
+                    });
+                } else {
+                    // 1) auto → 숫자값 (transition을 위해 필수)
+                    galleryExtraWrap.style.height = galleryExtraWrap.scrollHeight + 'px';
+                    // 2) 강제 리플로우
+                    void galleryExtraWrap.offsetHeight;
+                    // 3) 0으로 줄이기 → transition 발동
+                    galleryExtraWrap.classList.remove('show');
+                    galleryExtraWrap.style.height = '0';
+                }
+
+                ic.classList.toggle('fa-chevron-down', !galleryOpen);
+                ic.classList.toggle('fa-chevron-up', galleryOpen);
+            });
+        }
+
+        /* ===== SWIPEABLE GALLERY MODAL ===== */
+        var gModal = document.getElementById('gallery-modal');
+        var mImg = document.getElementById('modal-img');
+        var mCounter = document.getElementById('modal-counter');
+        var allImgs = document.querySelectorAll('.gallery-img');
+        var imgSrcs = [];
+        allImgs.forEach(function (img) { imgSrcs.push(img.src); });
+        var currentIdx = 0;
+
+        function showSlide(idx) {
+            if (idx < 0) idx = imgSrcs.length - 1;
+            if (idx >= imgSrcs.length) idx = 0;
+            currentIdx = idx;
+            mImg.src = imgSrcs[currentIdx];
+            mCounter.textContent = (currentIdx + 1) + ' / ' + imgSrcs.length;
+        }
+
+        function closeModal(pushHistory) {
+            if (!gModal.classList.contains('active')) return;
+            gModal.classList.remove('active');
+            document.body.style.overflow = '';
+            // If the user manually clicked close, we need to go back in history
+            if (pushHistory !== false && history.state && history.state.modal === 'gallery') {
+                history.back();
+            }
+        }
+
+        allImgs.forEach(function (img, i) {
+            img.addEventListener('click', function () {
+                currentIdx = i;
+                showSlide(currentIdx);
+                gModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                // Push state for back button support
+                history.pushState({ modal: 'gallery' }, '');
+            });
+        });
+
+        document.getElementById('modal-close-btn').onclick = function () {
+            closeModal();
+        };
+
+        // Also close on background click
+        gModal.addEventListener('click', function (e) {
+            if (e.target === gModal) {
+                closeModal();
+            }
+        });
+
+        window.addEventListener('popstate', function (event) {
+            // Close modal instead of going back if modal is active
+            if (gModal.classList.contains('active')) {
+                closeModal(false);
+            }
+        });
+
+        document.getElementById('modal-prev').onclick = function () { showSlide(currentIdx - 1); };
+        document.getElementById('modal-next').onclick = function () { showSlide(currentIdx + 1); };
+
+        /* Swipe support for touch (Singular touch only) */
+        var touchStartX = 0;
+        var isMultiTouch = false;
+
+        mImg.addEventListener('touchstart', function (e) {
+            isMultiTouch = e.touches.length > 1;
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        mImg.addEventListener('touchmove', function (e) {
+            if (e.touches.length > 1) isMultiTouch = true;
+        }, false);
+
+        mImg.addEventListener('touchend', function (e) {
+            if (isMultiTouch) return; // Ignore if it was a multi-touch/zoom gesture
+
+            var diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                showSlide(currentIdx + (diff > 0 ? 1 : -1));
+            }
+        }, false);
+
+        /* ===== BGM TOGGLE ===== */
+        var bgmBtn = document.getElementById('bgm-toggle-btn');
+        if (bgmBtn) {
+            bgmBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (window.toggleBGM) window.toggleBGM();
+            });
+        }
+
+        /* ===== NEW GIFT SECTION TOGGLES ===== */
+        window.openGiftTab = function (side) {
+            var expandArea = document.getElementById('gift-expand-area');
+            var clickedTab = document.getElementById('tab-' + side);
+
+            // Check if already active
+            if (clickedTab && clickedTab.classList.contains('active')) {
+                // Toggle off
+                clickedTab.classList.remove('active');
+                if (expandArea) expandArea.classList.remove('show');
+                return;
+            }
+
+            // Show the expand area
+            if (expandArea) expandArea.classList.add('show');
+
+            // Unset active on both tabs
+            document.getElementById('tab-groom').classList.remove('active');
+            document.getElementById('tab-bride').classList.remove('active');
+
+            // Set active on clicked tab
+            if (clickedTab) clickedTab.classList.add('active');
+
+            // Hide both face groups
+            document.getElementById('faces-groom').style.display = 'none';
+            document.getElementById('faces-bride').style.display = 'none';
+
+            // Show selected face group
+            var selectedFaces = document.getElementById('faces-' + side);
+            if (selectedFaces) selectedFaces.style.display = 'flex';
+
+            // Hide the account cards wrapper when switching tabs
+            document.getElementById('acc-cards-wrapper').style.display = 'none';
+
+            // Remove active state from all face buttons
+            document.querySelectorAll('.gift-face-btn').forEach(function (btn) {
+                btn.classList.remove('active');
+            });
+
+            // Re-trigger scroll observer to ensure anything revealed is visible
+            if (typeof fadeCheck === 'function') fadeCheck();
+        };
+
+        window.showGiftAccount = function (targetId, btnElement) {
+            // Remove active from all buttons
+            document.querySelectorAll('.gift-face-btn').forEach(function (btn) {
+                btn.classList.remove('active');
+            });
+
+            // Add active to clicked button
+            if (btnElement) btnElement.classList.add('active');
+
+            // Show the wrapper
+            var wrapper = document.getElementById('acc-cards-wrapper');
+            if (wrapper) wrapper.style.display = 'block';
+
+            // Hide all cards
+            document.querySelectorAll('.gift-acc-card').forEach(function (card) {
+                card.style.display = 'none';
+            });
+
+            // Show target card
+            var target = document.getElementById('acc-' + targetId);
+            if (target) {
+                target.style.display = 'block';
+                // Small scroll adjustment so the card is visible
+                setTimeout(function () {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 10);
+            }
+        };
+
+        /* ===== COUNTDOWN TIMER ===== */
+        (function () {
+            var targetDate = new Date("2026-05-02T11:30:00+09:00").getTime();
+
+            function updateCountdown() {
+                var now = new Date().getTime();
+                var dist = targetDate - now;
+
+                if (dist < 0) {
+                    var elDays = document.getElementById("cd-days");
+                    if (elDays) elDays.textContent = "00";
+                    var elHours = document.getElementById("cd-hours");
+                    if (elHours) elHours.textContent = "00";
+                    var elMins = document.getElementById("cd-mins");
+                    if (elMins) elMins.textContent = "00";
+                    var elSecs = document.getElementById("cd-secs");
+                    if (elSecs) elSecs.textContent = "00";
+                    var elTotalDays = document.getElementById("cd-total-days");
+                    if (elTotalDays) elTotalDays.textContent = "0";
+                    return;
+                }
+
+                var days = Math.floor(dist / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((dist % (1000 * 60)) / 1000);
+
+                var elDays = document.getElementById("cd-days");
+                if (elDays) elDays.textContent = days.toString().padStart(2, '0');
+
+                var elHours = document.getElementById("cd-hours");
+                if (elHours) elHours.textContent = hours.toString().padStart(2, '0');
+
+                var elMins = document.getElementById("cd-mins");
+                if (elMins) elMins.textContent = minutes.toString().padStart(2, '0');
+
+                var elSecs = document.getElementById("cd-secs");
+                if (elSecs) elSecs.textContent = seconds.toString().padStart(2, '0');
+
+                var elTotalDays = document.getElementById("cd-total-days");
+                if (elTotalDays) elTotalDays.textContent = days.toString();
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        })();
+
+        /* ===== TRANSPORT TABS ===== */
+        document.querySelectorAll('.transport-tab').forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                var targetId = 'tab-' + tab.dataset.tab;
+                document.querySelectorAll('.transport-tab').forEach(function (t) { t.classList.remove('active'); });
+                document.querySelectorAll('.transport-content').forEach(function (c) { c.classList.remove('active'); });
+                tab.classList.add('active');
+                var targetEl = document.getElementById(targetId);
+                if (targetEl) targetEl.classList.add('active');
+            });
+        });
+
+        /* ===== COPY FUNCTIONALITY ===== */
+        function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                return navigator.clipboard.writeText(text);
+            } else {
+                var textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed"; textArea.style.left = "-9999px";
+                document.body.appendChild(textArea);
+                textArea.focus(); textArea.select();
+                var res = document.execCommand('copy');
+                document.body.removeChild(textArea);
+                return res ? Promise.resolve() : Promise.reject();
+            }
+        }
+
+        document.querySelectorAll('.copy-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var textToCopy = btn.dataset.copy;
+                copyToClipboard(textToCopy).then(function () {
+                    var originalText = btn.textContent;
+                    btn.textContent = '복사됨';
+                    setTimeout(function () { btn.textContent = originalText; }, 1000);
+                }).catch(function (err) { console.error('Copy failed:', err); });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
