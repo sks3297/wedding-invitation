@@ -105,15 +105,16 @@
         <section class="section section--pink fade-item">
             <!-- <div class="section-num">인사말</div> -->
             <div class="greeting-block">
-                <div class="greeting-handwrite">
-                    <p>서로가 마주보며 다져온 사랑을</p>
-                    <p>이제 함께 한 곳을 바라보며</p>
-                    <p>걸어가고자 합니다.</p>
+                <div class="greeting-handwrite fade-child">
+                    <p>마음을 같이하여</p>
+                    <p>같은 사랑을 품고</p>
+                    <p>한뜻, 한마음으로 살아가겠습니다.</p>
                     <br>
-                    <p>저희의 새로운 시작을</p>
-                    <p>축복해 주시면 감사하겠습니다.</p>
+                    <p>저희 두 사람이 부부가 되는</p>
+                    <p>5월의 아름다운 날,</p>
+                    <p>귀한 걸음으로 축복해 주시면 감사하겠습니다.</p>
                 </div>
-                <div class="greeting-couple-names">
+                <div class="greeting-couple-names fade-child">
                     <span>{{ data.groom_name }}</span>
                     <span class="dot-sep">·</span>
                     <span>{{ data.bride_name }}</span>
@@ -121,29 +122,46 @@
             </div>
         </section>
 
+        <section class="photo-overlay-section photo-overlay--pink" style="padding-top: 0;">
+            <!-- <img src="{{ url_for('static', filename='images/overlay_image.png') }}" alt="신랑신부"
+                class="overlay-bg-img overlay-bg-img--framed"> -->
+            <img src="{{ url_for('static', filename='images/overlay_image.png') }}" alt="커플" class="overlay-bg-img"
+                style="height: 100%;">
+
+            <div class="handwrite-on-photo" style="left: 30%;">
+                <img src="{{ url_for('static', filename='images/message-man.png') }}" alt="신랑_메시지"
+                    class="handwrite-img">
+            </div>
+            <div class="handwrite-on-photo"
+                style="top: 80%; bottom: auto; transform: translate(-50%, -50%); left: 75%;">
+                <img src="{{ url_for('static', filename='images/message-man.png') }}" alt="신부_메시지"
+                    class="handwrite-img">
+            </div>
+        </section>
+
         <!-- ======== Photo with handwriting overlay (Groom) ======== -->
-        <section class="photo-overlay-section photo-overlay--pink" style="padding-bottom: 50px;">
+        <!-- <section class="photo-overlay-section photo-overlay--pink" style="padding-bottom: 50px;">
             <img src="{{ url_for('static', filename='images/gallery_07.jpg') }}" alt="신랑"
                 class="overlay-bg-img overlay-bg-img--framed">
             <div class="handwrite-on-photo"
                 style="top: 80%; bottom: auto; transform: translate(-50%, -50%); left: 75%;">
                 <img src="{{ url_for('static', filename='images/message-man.png') }}" alt="메시지" class="handwrite-img">
             </div>
-        </section>
+        </section> -->
 
         <!-- ======== Photo with handwriting overlay (Bride) ======== -->
-        <section class="photo-overlay-section photo-overlay--pink" style="padding-top: 0;">
+        <!-- <section class="photo-overlay-section photo-overlay--pink" style="padding-top: 0;">
             <img src="{{ url_for('static', filename='images/gallery_08.jpg') }}" alt="신부"
                 class="overlay-bg-img overlay-bg-img--framed">
             <div class="handwrite-on-photo">
                 <img src="{{ url_for('static', filename='images/message-woman.png') }}" alt="메시지" class="handwrite-img">
             </div>
-        </section>
+        </section> -->
 
         <!-- ======== 03. 갤러리 ======== -->
         <section class="section section--white fade-item">
             <!-- <div class="section-num">갤러리</div> -->
-            <h2 class="section-eng-title">GALLERY</h2>
+            <h2 class="section-eng-title fade-child">GALLERY</h2>
             <div class="gallery" id="gallery-grid">
                 <div class="gallery-img-wrap">
                     <img src="{{ url_for('static', filename='images/gallery_01.jpg') }}" alt="사진 1" class="gallery-img"
@@ -209,14 +227,6 @@
                         <img src="{{ url_for('static', filename='images/gallery_15.jpg') }}" alt="사진 15"
                             class="gallery-img" data-index="14">
                     </div>
-                    <div class="gallery-img-wrap">
-                        <img src="{{ url_for('static', filename='images/gallery_16.jpg') }}" alt="사진 16"
-                            class="gallery-img" data-index="15">
-                    </div>
-                    <div class="gallery-img-wrap">
-                        <img src="{{ url_for('static', filename='images/gallery_17.jpg') }}" alt="사진 17"
-                            class="gallery-img" data-index="16">
-                    </div>
                 </div>
             </div>
             <button id="toggle-gallery-btn" class="gallery-toggle-btn">
@@ -233,11 +243,10 @@
             </div>
         </section>
 
-        <!-- ======== 04. 예식일 (Pink) ======== -->
         <section class="section section--pink fade-item">
             <!-- <div class="section-num">예식일</div> -->
-            <h2 class="section-eng-title">WEDDING DAY</h2>
-            <div class="calendar-wrap">
+            <h2 class="section-eng-title fade-child">WEDDING DAY</h2>
+            <div class="calendar-wrap fade-child">
                 <div class="cal-head">
                     <span class="cal-month">MAY</span>
                     <span class="cal-year">2026</span>
@@ -312,15 +321,36 @@
                     </tbody>
                 </table>
             </div>
-            <p class="wedding-datetime">2026. 05. 02. SAT &nbsp;|&nbsp; AM 11:30</p>
-            <p class="dday-line">{{ data.d_day }}</p>
+            <p class="wedding-datetime fade-child">2026. 05. 02. SAT &nbsp;|&nbsp; AM 11:30</p>
+            <div class="countdown-wrap fade-child" id="countdown-wrap">
+                <div class="countdown-item">
+                    <span class="countdown-num" id="cd-days">--</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <span class="countdown-colon">:</span>
+                <div class="countdown-item">
+                    <span class="countdown-num" id="cd-hours">--</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <span class="countdown-colon">:</span>
+                <div class="countdown-item">
+                    <span class="countdown-num" id="cd-mins">--</span>
+                    <span class="countdown-label">Min</span>
+                </div>
+                <span class="countdown-colon">:</span>
+                <div class="countdown-item">
+                    <span class="countdown-num" id="cd-secs">--</span>
+                    <span class="countdown-label">Sec</span>
+                </div>
+            </div>
+            <p class="dday-line fade-child" id="dday-text">우리 예식까지 남은 시간, <span id="cd-total-days">--</span>일</p>
         </section>
 
         <!-- ======== 05. 오시는 길 ======== -->
         <section class="section section--white fade-item">
             <!-- <div class="section-num">오시는 길</div> -->
-            <h2 class="section-eng-title">LOCATION</h2>
-            <p class="loc-name">{{ data.wedding_hall }}</p>
+            <h2 class="section-eng-title fade-child">LOCATION</h2>
+            <p class="loc-name fade-child">{{ data.wedding_hall }}</p>
             <div id="map" class="map-container"
                 style="display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.8em; text-align: center; padding: 20px;">
                 <div id="map-placeholder">지도를 불러오는 중입니다...<br><span style="font-size: 0.85em; opacity: 0.7;">(5초 이상 지속될
@@ -344,28 +374,28 @@
             <!-- 교통편 안내 탭 -->
             <div class="transport-wrap">
                 <div class="transport-tabs">
-                    <button class="transport-tab active" data-tab="subway">
+                    <button class="transport-tab active" data-tab="car">
+                        <i class="fas fa-car"></i> 승용차
+                    </button>
+                    <button class="transport-tab" data-tab="subway">
                         <i class="fas fa-subway"></i> 지하철
                     </button>
                     <button class="transport-tab" data-tab="bus">
                         <i class="fas fa-bus"></i> 버스
                     </button>
-                    <button class="transport-tab" data-tab="car">
-                        <i class="fas fa-car"></i> 승용차
-                    </button>
                 </div>
 
-                <div class="transport-content active" id="tab-subway">
+                <div class="transport-content" id="tab-subway">
                     <div class="transport-item">
                         <p class="transport-desc">1, 2호선 신도림역 1번출구에서 왼쪽 지하도로 연결</p>
-                        <div class="transport-route">
+                        <!-- <div class="transport-route">
                             <span class="route-label">김포국제공항 출발</span>
                             <span class="route-text">5호선 김포공항역 → 까치산역에서 2호선 환승 → 신도림역 하차</span>
                         </div>
                         <div class="transport-route">
                             <span class="route-label">인천국제공항 출발</span>
                             <span class="route-text">공항철도 인천공항 1터미널역 또는 인천공항 2터미널역 → 홍대입구역에서 2호선 환승 → 신도림역 하차</span>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -390,7 +420,7 @@
                     </div>
                 </div>
 
-                <div class="transport-content" id="tab-car">
+                <div class="transport-content active" id="tab-car">
                     <div class="transport-item">
                         <div class="transport-route">
                             <span class="route-label">영등포 방향</span>
@@ -406,94 +436,106 @@
         </section>
 
         <!-- ======== 06. 마음 전하실 곳 ======== -->
-        <section class="section section--pink fade-item">
+        <section class="section section--pink fade-item" id="gift-section">
             <!-- <div class="section-num">마음 전하실 곳</div> -->
-            <h2 class="section-eng-title">GIFT</h2>
-            <p class="gift-sub">축하의 마음을 전해주세요</p>
+            <h2 class="section-eng-title fade-child">GIFT</h2>
+            <p class="gift-sub fade-child">축하의 마음을 전해주세요</p>
 
-            <div class="acc-group" id="groom-acc">
-                <button class="acc-toggle" id="groom-toggle">
-                    <span>신랑측</span><i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="acc-body">
-                    <div class="acc-row">
-                        <div class="acc-detail">
-                            <div class="acc-info-line">
-                                <span class="acc-bank">{{ data.groom_father_account_bank }}</span>
-                                <span class="acc-num">{{ data.groom_father_account }}</span>
-                            </div>
-                            <span class="acc-who">{{ data.groom_father_name }}</span>
-                        </div>
-                        <button class="copy-btn" data-copy="{{ data.groom_father_account }}">복사</button>
-                    </div>
-                </div>
-                <div class="acc-body">
-                    <div class="acc-row">
-                        <div class="acc-detail">
-                            <div class="acc-info-line">
-                                <span class="acc-bank">{{ data.groom_mother_account_bank }}</span>
-                                <span class="acc-num">{{ data.groom_mother_account }}</span>
-                            </div>
-                            <span class="acc-who">{{ data.groom_mother_name }}</span>
-                        </div>
-                        <button class="copy-btn" data-copy="{{ data.groom_mother_account }}">복사</button>
-                    </div>
-                </div>
-                <div class="acc-body">
-                    <div class="acc-row">
-                        <div class="acc-detail">
-                            <div class="acc-info-line">
-                                <span class="acc-bank">{{ data.groom_account_bank }}</span>
-                                <span class="acc-num">{{ data.groom_account }}</span>
-                            </div>
-                            <span class="acc-who">{{ data.groom_name }}</span>
-                        </div>
-                        <button class="copy-btn" data-copy="{{ data.groom_account }}">복사</button>
-                    </div>
-                </div>
+            <div class="gift-tab-btns fade-child">
+                <button class="gift-tab-btn" id="tab-groom" onclick="openGiftTab('groom')"><span>신랑측</span></button>
+                <button class="gift-tab-btn" id="tab-bride" onclick="openGiftTab('bride')"><span>신부측</span></button>
             </div>
-            <div class="acc-group" id="bride-acc">
-                <button class="acc-toggle" id="bride-toggle">
-                    <span>신부측</span><i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="acc-body">
-                    <div class="acc-row">
-                        <div class="acc-detail">
-                            <div class="acc-info-line">
-                                <span class="acc-bank">{{ data.bride_father_account_bank }}</span>
-                                <span class="acc-num">{{ data.bride_father_account }}</span>
-                            </div>
-                            <span class="acc-who">{{ data.bride_father_name }}</span>
-                        </div>
-                        <button class="copy-btn" data-copy="{{ data.bride_father_account }}">복사</button>
-                    </div>
+
+            <div class="gift-expand-area fade-child" id="gift-expand-area">
+                <p class="gift-q">어떤 분에게 마음을 전하시겠어요?</p>
+
+                <!-- 1) Groom Faces -->
+                <div class="gift-faces" id="faces-groom" style="display: none;">
+                    <button class="gift-face-btn" onclick="showGiftAccount('groom-self', this)">
+                        <div class="face-circle">신랑</div>
+                        <span class="face-name">{{ data.groom_name }}</span>
+                    </button>
+                    <button class="gift-face-btn" onclick="showGiftAccount('groom-dad', this)">
+                        <div class="face-circle">아버지</div>
+                        <span class="face-name">{{ data.groom_father_name }}</span>
+                    </button>
+                    <button class="gift-face-btn" onclick="showGiftAccount('groom-mom', this)">
+                        <div class="face-circle">어머니</div>
+                        <span class="face-name">{{ data.groom_mother_name }}</span>
+                    </button>
                 </div>
-                <div class="acc-body">
-                    <div class="acc-row">
-                        <div class="acc-detail">
-                            <div class="acc-info-line">
-                                <span class="acc-bank">{{ data.bride_mother_account_bank }}</span>
-                                <span class="acc-num">{{ data.bride_mother_account }}</span>
-                            </div>
-                            <span class="acc-who">{{ data.bride_mother_name }}</span>
-                        </div>
-                        <button class="copy-btn" data-copy="{{ data.bride_mother_account }}">복사</button>
-                    </div>
+
+                <!-- 2) Bride Faces -->
+                <div class="gift-faces" id="faces-bride" style="display: none;">
+                    <button class="gift-face-btn" onclick="showGiftAccount('bride-self', this)">
+                        <div class="face-circle">신부</div>
+                        <span class="face-name">{{ data.bride_name }}</span>
+                    </button>
+                    <button class="gift-face-btn" onclick="showGiftAccount('bride-dad', this)">
+                        <div class="face-circle">아버지</div>
+                        <span class="face-name">{{ data.bride_father_name }}</span>
+                    </button>
+                    <button class="gift-face-btn" onclick="showGiftAccount('bride-mom', this)">
+                        <div class="face-circle">어머니</div>
+                        <span class="face-name">{{ data.bride_mother_name }}</span>
+                    </button>
                 </div>
-                <div class="acc-body">
-                    <div class="acc-row">
-                        <div class="acc-detail">
-                            <div class="acc-info-line">
-                                <span class="acc-bank">{{ data.bride_account_bank }}</span>
-                                <span class="acc-num">{{ data.bride_account }}</span>
-                            </div>
-                            <span class="acc-who">{{ data.bride_name }}</span>
-                        </div>
-                        <button class="copy-btn" data-copy="{{ data.bride_account }}">복사</button>
+
+                <!-- Account Result Details -->
+                <div class="gift-acc-cards" id="acc-cards-wrapper" style="display: none;">
+
+                    <div class="gift-acc-card" id="acc-groom-self" style="display: none;">
+                        <div class="acc-c-bank">{{ data.groom_account_bank }}</div>
+                        <div class="acc-c-num">{{ data.groom_account }}</div>
+                        <div class="acc-c-name">예금주 : {{ data.groom_name }}</div>
+                        <button class="copy-btn-new" data-copy="{{ data.groom_account }}"><i class="far fa-copy"></i>
+                            계좌번호 복사</button>
+                    </div>
+                    <div class="gift-acc-card" id="acc-groom-dad" style="display: none;">
+                        <div class="acc-c-bank">{{ data.groom_father_account_bank }}</div>
+                        <div class="acc-c-num">{{ data.groom_father_account }}</div>
+                        <div class="acc-c-name">예금주 : {{ data.groom_father_name }}</div>
+                        <button class="copy-btn-new" data-copy="{{ data.groom_father_account }}"><i
+                                class="far fa-copy"></i> 계좌번호 복사</button>
+                    </div>
+                    <div class="gift-acc-card" id="acc-groom-mom" style="display: none;">
+                        <div class="acc-c-bank">{{ data.groom_mother_account_bank }}</div>
+                        <div class="acc-c-num">{{ data.groom_mother_account }}</div>
+                        <div class="acc-c-name">예금주 : {{ data.groom_mother_name }}</div>
+                        <button class="copy-btn-new" data-copy="{{ data.groom_mother_account }}"><i
+                                class="far fa-copy"></i> 계좌번호 복사</button>
+                    </div>
+
+                    <div class="gift-acc-card" id="acc-bride-self" style="display: none;">
+                        <div class="acc-c-bank">{{ data.bride_account_bank }}</div>
+                        <div class="acc-c-num">{{ data.bride_account }}</div>
+                        <div class="acc-c-name">예금주 : {{ data.bride_name }}</div>
+                        <button class="copy-btn-new" data-copy="{{ data.bride_account }}"><i class="far fa-copy"></i>
+                            계좌번호 복사</button>
+                    </div>
+                    <div class="gift-acc-card" id="acc-bride-dad" style="display: none;">
+                        <div class="acc-c-bank">{{ data.bride_father_account_bank }}</div>
+                        <div class="acc-c-num">{{ data.bride_father_account }}</div>
+                        <div class="acc-c-name">예금주 : {{ data.bride_father_name }}</div>
+                        <button class="copy-btn-new" data-copy="{{ data.bride_father_account }}"><i
+                                class="far fa-copy"></i> 계좌번호 복사</button>
+                    </div>
+                    <div class="gift-acc-card" id="acc-bride-mom" style="display: none;">
+                        <div class="acc-c-bank">{{ data.bride_mother_account_bank }}</div>
+                        <div class="acc-c-num">{{ data.bride_mother_account }}</div>
+                        <div class="acc-c-name">예금주 : {{ data.bride_mother_name }}</div>
+                        <button class="copy-btn-new" data-copy="{{ data.bride_mother_account }}"><i
+                                class="far fa-copy"></i> 계좌번호 복사</button>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- ======== Bottom Image ======== -->
+        <div style="width: 100%; font-size: 0; line-height: 0;">
+            <img src="{{ url_for('static', filename='images/gallery_bottom.jpg') }}" alt="웨딩 사진"
+                style="width: 100%; height: auto; display: block;">
+        </div>
 
         <footer class="footer">
             <p class="ft-script">Our Wedding</p>
@@ -568,6 +610,15 @@
             els.forEach(function (el) {
                 if (!el.classList.contains('visible') && el.getBoundingClientRect().top < threshold) {
                     el.classList.add('visible');
+
+                    // Reveal fade-child elements incrementally
+                    var children = el.querySelectorAll('.fade-child');
+                    children.forEach(function (child, i) {
+                        setTimeout(function () {
+                            child.classList.add('visible');
+                        }, 120 * i);
+                    });
+
                     // If this is the map section, trigger a redraw to fix mobile rendering
                     if (el.querySelector('#map') && kmap) {
                         console.log("Map section visible, triggering relayout (1000ms delay)");
@@ -660,7 +711,29 @@
                 galleryOpen = !galleryOpen;
                 var ic = togBtn.querySelector('i');
 
-                galleryExtraWrap.classList.toggle('show', galleryOpen);
+                if (galleryOpen) {
+                    // 1) height를 명시적으로 0으로 고정
+                    galleryExtraWrap.style.height = '0';
+                    galleryExtraWrap.classList.add('show');
+                    // 2) 강제 리플로우 → 브라우저가 height:0 상태를 인식
+                    void galleryExtraWrap.offsetHeight;
+                    // 3) 실제 높이로 설정 → transition 발동
+                    galleryExtraWrap.style.height = galleryExtraWrap.scrollHeight + 'px';
+                    // 4) 애니메이션 끝나면 auto로 전환 (리사이즈 대응)
+                    galleryExtraWrap.addEventListener('transitionend', function onOpen(e) {
+                        if (e.propertyName !== 'height') return;
+                        galleryExtraWrap.removeEventListener('transitionend', onOpen);
+                        if (galleryOpen) galleryExtraWrap.style.height = 'auto';
+                    });
+                } else {
+                    // 1) auto → 숫자값 (transition을 위해 필수)
+                    galleryExtraWrap.style.height = galleryExtraWrap.scrollHeight + 'px';
+                    // 2) 강제 리플로우
+                    void galleryExtraWrap.offsetHeight;
+                    // 3) 0으로 줄이기 → transition 발동
+                    galleryExtraWrap.classList.remove('show');
+                    galleryExtraWrap.style.height = '0';
+                }
 
                 ic.classList.toggle('fa-chevron-down', !galleryOpen);
                 ic.classList.toggle('fa-chevron-up', galleryOpen);
@@ -757,12 +830,124 @@
             });
         }
 
-        /* ===== ACCOUNT TOGGLE ===== */
-        document.querySelectorAll('.acc-toggle').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                btn.parentElement.classList.toggle('open');
+        /* ===== NEW GIFT SECTION TOGGLES ===== */
+        window.openGiftTab = function (side) {
+            var expandArea = document.getElementById('gift-expand-area');
+            var clickedTab = document.getElementById('tab-' + side);
+
+            // Check if already active
+            if (clickedTab && clickedTab.classList.contains('active')) {
+                // Toggle off
+                clickedTab.classList.remove('active');
+                if (expandArea) expandArea.classList.remove('show');
+                return;
+            }
+
+            // Show the expand area
+            if (expandArea) expandArea.classList.add('show');
+
+            // Unset active on both tabs
+            document.getElementById('tab-groom').classList.remove('active');
+            document.getElementById('tab-bride').classList.remove('active');
+
+            // Set active on clicked tab
+            if (clickedTab) clickedTab.classList.add('active');
+
+            // Hide both face groups
+            document.getElementById('faces-groom').style.display = 'none';
+            document.getElementById('faces-bride').style.display = 'none';
+
+            // Show selected face group
+            var selectedFaces = document.getElementById('faces-' + side);
+            if (selectedFaces) selectedFaces.style.display = 'flex';
+
+            // Hide the account cards wrapper when switching tabs
+            document.getElementById('acc-cards-wrapper').style.display = 'none';
+
+            // Remove active state from all face buttons
+            document.querySelectorAll('.gift-face-btn').forEach(function (btn) {
+                btn.classList.remove('active');
             });
-        });
+
+            // Re-trigger scroll observer to ensure anything revealed is visible
+            if (typeof fadeCheck === 'function') fadeCheck();
+        };
+
+        window.showGiftAccount = function (targetId, btnElement) {
+            // Remove active from all buttons
+            document.querySelectorAll('.gift-face-btn').forEach(function (btn) {
+                btn.classList.remove('active');
+            });
+
+            // Add active to clicked button
+            if (btnElement) btnElement.classList.add('active');
+
+            // Show the wrapper
+            var wrapper = document.getElementById('acc-cards-wrapper');
+            if (wrapper) wrapper.style.display = 'block';
+
+            // Hide all cards
+            document.querySelectorAll('.gift-acc-card').forEach(function (card) {
+                card.style.display = 'none';
+            });
+
+            // Show target card
+            var target = document.getElementById('acc-' + targetId);
+            if (target) {
+                target.style.display = 'block';
+                // Small scroll adjustment so the card is visible
+                setTimeout(function () {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 10);
+            }
+        };
+
+        /* ===== COUNTDOWN TIMER ===== */
+        (function () {
+            var targetDate = new Date("2026-05-02T11:30:00+09:00").getTime();
+
+            function updateCountdown() {
+                var now = new Date().getTime();
+                var dist = targetDate - now;
+
+                if (dist < 0) {
+                    var elDays = document.getElementById("cd-days");
+                    if (elDays) elDays.textContent = "00";
+                    var elHours = document.getElementById("cd-hours");
+                    if (elHours) elHours.textContent = "00";
+                    var elMins = document.getElementById("cd-mins");
+                    if (elMins) elMins.textContent = "00";
+                    var elSecs = document.getElementById("cd-secs");
+                    if (elSecs) elSecs.textContent = "00";
+                    var elTotalDays = document.getElementById("cd-total-days");
+                    if (elTotalDays) elTotalDays.textContent = "0";
+                    return;
+                }
+
+                var days = Math.floor(dist / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((dist % (1000 * 60)) / 1000);
+
+                var elDays = document.getElementById("cd-days");
+                if (elDays) elDays.textContent = days.toString().padStart(2, '0');
+
+                var elHours = document.getElementById("cd-hours");
+                if (elHours) elHours.textContent = hours.toString().padStart(2, '0');
+
+                var elMins = document.getElementById("cd-mins");
+                if (elMins) elMins.textContent = minutes.toString().padStart(2, '0');
+
+                var elSecs = document.getElementById("cd-secs");
+                if (elSecs) elSecs.textContent = seconds.toString().padStart(2, '0');
+
+                var elTotalDays = document.getElementById("cd-total-days");
+                if (elTotalDays) elTotalDays.textContent = days.toString();
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        })();
 
         /* ===== TRANSPORT TABS ===== */
         document.querySelectorAll('.transport-tab').forEach(function (tab) {
