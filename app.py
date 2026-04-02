@@ -13,7 +13,7 @@ KAKAO_MAP_API_KEY = '{KAKAO_MAP_API_KEY}' # 프롬투데이 느낌을 위해 키
 # 2. 예식장 좌표 (구글맵이나 카카오맵에서 확인한 위도, 경도)
 WEDDING_LAT = 37.508628
 WEDDING_LNG = 126.888733
-WEDDING_HALL_NAME = '더 세인트'
+WEDDING_HALL_FULL_NAME = '더 세인트 그랜드볼룸'
 WEDDING_ADDRESS = '서울특별시 구로구 경인로 662 디큐브시티 6층-그랜드볼룸'
 WEDDING_DATE_OBJ = datetime.date(2026, 5, 2)
 
@@ -30,7 +30,8 @@ def index():
 
     invitation_data = {
         'wedding_date': '2026년 5월 2일 토요일 오전 11시 30분',
-        'wedding_hall': WEDDING_HALL_NAME,
+        'wedding_hall': '더 세인트',
+        'wedding_hall_full_name': WEDDING_HALL_FULL_NAME,
         'address': WEDDING_ADDRESS,
         
         'groom_name': '{GROOM_NAME}',

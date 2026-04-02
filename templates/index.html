@@ -7,7 +7,7 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sks3297.github.io/wedding-invitation/">
-    <meta property="og:title" content="기성 & 해솔의 결혼식에 초대합니다">
+    <meta property="og:title" content="기성이와 해솔이의 결혼식에 초대합니다">
     <meta property="og:description" content="2026년 5월 2일, 저희의 시작을 함께해주세요.">
     <meta property="og:image" content="https://sks3297.github.io/wedding-invitation/static/images/share_image_v3.jpg">
     <title>결혼합니다</title>
@@ -76,23 +76,35 @@
             <!-- <div class="section-num section-num--light">01. 표지</div> -->
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <p class="hero-kor-sub">우리 결혼합니다</p>
+                <p class="hero-kor-sub">저희 결혼합니다</p>
                 <h1 class="hero-script">Our Wedding</h1>
-                <div class="hero-names">
+                <!-- <div class="hero-names">
                     <span>{{ data.groom_name }}</span>
                     <span class="amp">&amp;</span>
                     <span>{{ data.bride_name }}</span>
-                </div>
+                </div> -->
                 <p class="hero-date">{{ data.wedding_date }}</p>
-                <p class="hero-hall">{{ data.wedding_hall }}</p>
+                <p class="hero-hall">{{ data.wedding_hall_full_name }}</p>
             </div>
         </header>
 
         <!-- ======== Couple Photo with Script Overlay ======== -->
-        <section class="photo-overlay-section">
-            <img src="{{ url_for('static', filename='images/gallery_01.jpg') }}" alt="커플" class="overlay-bg-img">
+        <!-- <section class="photo-overlay-section">
+            <img src="{{ url_for('static', filename='images/overlay_image.jpg') }}" alt="커플" class="overlay-bg-img">
             <div class="overlay-text-box">
                 <p class="overlay-script">Our Wedding</p>
+            </div>
+        </section> -->
+
+        <section class="photo-overlay-section photo-overlay--pink" style="padding-top: 0;">
+            <!-- <img src="{{ url_for('static', filename='images/overlay_image.png') }}" alt="신랑신부"
+                class="overlay-bg-img overlay-bg-img--framed"> -->
+            <img src="{{ url_for('static', filename='images/overlay_image.jpg') }}" alt="커플" class="overlay-bg-img"
+                style="height: 100%;">
+
+            <div class="handwrite-on-photo" style="left: 25%; top: 56%;">
+                <img src="{{ url_for('static', filename='images/message-man.png') }}" alt="초대_메시지"
+                    class="handwrite-img">
             </div>
         </section>
 
@@ -114,23 +126,6 @@
                     <span class="dot-sep">·</span>
                     <span>{{ data.bride_name }}</span>
                 </div>
-            </div>
-        </section>
-
-        <section class="photo-overlay-section photo-overlay--pink" style="padding-top: 0;">
-            <!-- <img src="{{ url_for('static', filename='images/overlay_image.png') }}" alt="신랑신부"
-                class="overlay-bg-img overlay-bg-img--framed"> -->
-            <img src="{{ url_for('static', filename='images/overlay_image.jpg') }}" alt="커플" class="overlay-bg-img"
-                style="height: 100%;">
-
-            <div class="handwrite-on-photo" style="left: 25%; top: 56%;">
-                <img src="{{ url_for('static', filename='images/message-man.png') }}" alt="신랑_메시지"
-                    class="handwrite-img">
-            </div>
-            <div class="handwrite-on-photo"
-                style="top: 80%; bottom: auto; transform: translate(-50%, -50%); left: 75%;">
-                <img src="{{ url_for('static', filename='images/message-man.png') }}" alt="신부_메시지"
-                    class="handwrite-img">
             </div>
         </section>
 
@@ -206,14 +201,14 @@
                         <img src="{{ url_for('static', filename='images/gallery_11.jpg') }}" alt="사진 11"
                             class="gallery-img" data-index="10">
                     </div>
-                    <div class="gallery-img-wrap">
+                    <!-- <div class="gallery-img-wrap">
                         <img src="{{ url_for('static', filename='images/gallery_12.jpg') }}" alt="사진 12"
                             class="gallery-img" data-index="11">
                     </div>
                     <div class="gallery-img-wrap">
                         <img src="{{ url_for('static', filename='images/gallery_13.jpg') }}" alt="사진 13"
                             class="gallery-img" data-index="12">
-                    </div>
+                    </div> -->
                     <!-- <div class="gallery-img-wrap">
                         <img src="{{ url_for('static', filename='images/gallery_14.jpg') }}" alt="사진 14"
                             class="gallery-img" data-index="13">
@@ -526,6 +521,23 @@
             </div>
         </section>
 
+        <section class="photo-overlay-section photo-overlay--pink" style="padding-top: 0;">
+            <!-- <img src="{{ url_for('static', filename='images/overlay_image.png') }}" alt="신랑신부"
+                class="overlay-bg-img overlay-bg-img--framed"> -->
+            <img src="{{ url_for('static', filename='images/overlay_image2.jpg') }}" alt="커플" class="overlay-bg-img"
+                style="height: 100%;">
+
+            <div class="handwrite-on-photo" style="left: 25%; top: 56%;">
+                <img src="{{ url_for('static', filename='images/message-man.png') }}" alt="신랑_메시지"
+                    class="handwrite-img">
+            </div>
+            <div class="handwrite-on-photo"
+                style="top: 80%; bottom: auto; transform: translate(-50%, -50%); left: 75%;">
+                <img src="{{ url_for('static', filename='images/message-man.png') }}" alt="신부_메시지"
+                    class="handwrite-img">
+            </div>
+        </section>
+
         <!-- ======== Bottom Image ======== -->
         <div style="width: 100%; font-size: 0; line-height: 0;">
             <img src="{{ url_for('static', filename='images/gallery_bottom.jpg') }}" alt="웨딩 사진"
@@ -534,7 +546,7 @@
 
         <footer class="footer">
             <p class="ft-script">Our Wedding</p>
-            <p class="ft-names">{{ data.groom_name }} &amp; {{ data.bride_name }}</p>
+            <p class="ft-names">{{ data.groom_name }} &amp; {{ data.bride_name }} 드림</p>
         </footer>
 
     </div>
