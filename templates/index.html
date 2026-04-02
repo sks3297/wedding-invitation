@@ -91,7 +91,7 @@
         <!-- ======== Couple Photo with Script Overlay ======== -->
         <section class="photo-overlay-section photo-overlay--pink" style="padding-top: 0;">
             <img src="{{ url_for('static', filename='images/overlay_image.png') }}" alt="커플" class="overlay-bg-img"
-                style="height: 100%;">
+                style="height: 100%; filter: brightness(1);">
 
             <div class="handwrite-on-photo"
                 style="top: 80%; bottom: auto; transform: translate(-50%, -50%); left: 75%;">
@@ -121,7 +121,7 @@
                         <span style="font-size: 0.85em; color: #999; margin: 0 10px;">의&nbsp;&nbsp;&nbsp;차남</span>
                         <span
                             style="font-size: 0.95em; color: #333; font-weight: 500; text-align: left; width: 60px;">{{
-                            data.groom_name }}</span>
+                            기성 }}</span>
                     </div>
                     <div style="display: flex; align-items: center; justify-content: center;">
                         <span style="font-size: 0.75em; color: #555; text-align: right; width: 120px;">{{
@@ -129,7 +129,7 @@
                         <span style="font-size: 0.85em; color: #999; margin: 0 10px;">의&nbsp;&nbsp;&nbsp;차녀</span>
                         <span
                             style="font-size: 0.95em; color: #333; font-weight: 500; text-align: left; width: 60px;">{{
-                            data.bride_name }}</span>
+                            해솔 }}</span>
                     </div>
                 </div>
             </div>
@@ -531,7 +531,7 @@
             <!-- <img src="{{ url_for('static', filename='images/overlay_image.png') }}" alt="신랑신부"
                 class="overlay-bg-img overlay-bg-img--framed"> -->
             <img src="{{ url_for('static', filename='images/overlay_image2.jpg') }}" alt="커플" class="overlay-bg-img"
-                style="height: 100%;">
+                style="height: 100%; filter: brightness(1);">
 
             <div class="handwrite-on-photo" style="left: 25%; top: 56%;">
                 <img src="{{ url_for('static', filename='images/message-man.png') }}" alt="신랑_메시지"
@@ -1006,6 +1006,15 @@
         });
     </script>
 
+    <!-- Prevent Image Downloading (Right Click / Long Press) -->
+    <script>
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+        document.addEventListener('dragstart', function (e) {
+            e.preventDefault();
+        });
+    </script>
 </body>
 
 </html>

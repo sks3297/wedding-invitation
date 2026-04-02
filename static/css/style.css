@@ -7,6 +7,16 @@
     box-sizing: border-box;
 }
 
+img {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
 html,
 body {
     background: #f2eeeb;
@@ -180,7 +190,7 @@ body {
 }
 
 .photo-overlay--pink {
-    background: linear-gradient(180deg, #f0e6de, #ede2da);
+    /* background: linear-gradient(180deg, #f0e6de, #ede2da); */
     padding: 40px 0;
 }
 
