@@ -972,13 +972,17 @@
             }
         }
 
-        document.querySelectorAll('.copy-btn').forEach(function (btn) {
+        document.querySelectorAll('.copy-btn, .copy-btn-new').forEach(function (btn) {
             btn.addEventListener('click', function () {
                 var textToCopy = btn.dataset.copy;
                 copyToClipboard(textToCopy).then(function () {
-                    var originalText = btn.textContent;
-                    btn.textContent = '복사됨';
-                    setTimeout(function () { btn.textContent = originalText; }, 1000);
+                    var originalHTML = btn.innerHTML;
+                    if (btn.classList.contains('copy-btn-new')) {
+                        btn.innerHTML = '<i class="far fa-copy"></i> 복사됨';
+                    } else {
+                        btn.innerHTML = '복사됨';
+                    }
+                    setTimeout(function () { btn.innerHTML = originalHTML; }, 1000);
                 }).catch(function (err) { console.error('Copy failed:', err); });
             });
         });
