@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sks3297.github.io/wedding-invitation/">
     <meta property="og:title" content="기성이와 해솔이의 결혼식에 초대합니다">
@@ -16,7 +19,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Nanum+Myeongjo:wght@400;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=1.1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
@@ -116,20 +119,18 @@
                 <div class="greeting-couple-names fade-child"
                     style="display: flex; flex-direction: column; gap: 12px; margin-top: 30px; font-weight: 400;">
                     <div style="display: flex; align-items: center; justify-content: center;">
-                        <span style="font-size: 0.75em; color: #555; text-align: right; width: 120px;">{{
+                        <span style="font-size: 0.65em; color: #555; text-align: right; width: 120px;">{{
                             data.groom_father_name }} · {{ data.groom_mother_name }}</span>
-                        <span style="font-size: 0.85em; color: #999; margin: 0 10px;">의&nbsp;&nbsp;&nbsp;차남</span>
+                        <span style="font-size: 0.75em; color: #999; margin: 0 10px;">의&nbsp;&nbsp;&nbsp;차남</span>
                         <span
-                            style="font-size: 0.95em; color: #333; font-weight: 500; text-align: left; width: 60px;">{{
-                            기성 }}</span>
+                            style="font-size: 0.85em; color: #333; font-weight: 500; text-align: left; width: 60px;">기성</span>
                     </div>
                     <div style="display: flex; align-items: center; justify-content: center;">
-                        <span style="font-size: 0.75em; color: #555; text-align: right; width: 120px;">{{
+                        <span style="font-size: 0.65em; color: #555; text-align: right; width: 120px;">{{
                             data.bride_father_name }} · {{ data.bride_mother_name }}</span>
-                        <span style="font-size: 0.85em; color: #999; margin: 0 10px;">의&nbsp;&nbsp;&nbsp;차녀</span>
+                        <span style="font-size: 0.75em; color: #999; margin: 0 10px;">의&nbsp;&nbsp;&nbsp;차녀</span>
                         <span
-                            style="font-size: 0.95em; color: #333; font-weight: 500; text-align: left; width: 60px;">{{
-                            해솔 }}</span>
+                            style="font-size: 0.85em; color: #333; font-weight: 500; text-align: left; width: 60px;">해솔</span>
                     </div>
                 </div>
             </div>
@@ -546,7 +547,7 @@
 
         <!-- ======== Bottom Image ======== -->
         <div style="width: 100%; font-size: 0; line-height: 0;">
-            <img src="{{ url_for('static', filename='images/gallery_bottom.jpg') }}" alt="웨딩 사진"
+            <img src="{{ url_for('static', filename='images/gallery_bottom.png') }}" alt="웨딩 사진"
                 style="width: 100%; height: auto; display: block;">
         </div>
 
