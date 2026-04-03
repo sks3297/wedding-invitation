@@ -96,11 +96,11 @@
             <img src="{{ url_for('static', filename='images/overlay_image.jpg') }}" alt="커플" class="overlay-bg-img"
                 style="height: 100%; filter: brightness(1);">
 
-            <div class="handwrite-on-photo"
+            <!-- <div class="handwrite-on-photo"
                 style="top: 80%; bottom: auto; transform: translate(-50%, -50%); left: 75%;">
                 <img src="{{ url_for('static', filename='images/invite_text.png') }}" alt="초대_메시지"
                     class="handwrite-img">
-            </div>
+            </div> -->
         </section>
 
         <!-- ======== 02. 인사말 (Pink) ======== -->
@@ -117,14 +117,14 @@
                     <p>귀한 걸음으로 축복해 주시면 감사하겠습니다.</p>
                 </div>
                 <div class="greeting-couple-names fade-child"
-                    style="margin-top: 35px; text-align: center; line-height: 2.0;">
+                    style="display: flex; flex-direction: column; gap: 10px; margin-top: 35px; text-align: center;">
                     <div style="white-space: nowrap;">
                         <span style="font-size: 1.05em; color: #333;">{{data.groom_father_name}} ·
                             {{data.groom_mother_name}}</span>
                         <span style="font-size: 0.95em; color: #777; margin: 0 6px;">의 차남</span>
                         <span style="font-size: 1.15em; color: #222; font-weight: 500;">기성</span>
                     </div>
-                    <div style="white-space: nowrap; margin-top: 6px;">
+                    <div style="white-space: nowrap;">
                         <span style="font-size: 1.05em; color: #333;">{{data.bride_father_name}} ·
                             {{data.bride_mother_name}}</span>
                         <span style="font-size: 0.95em; color: #777; margin: 0 6px;">의 차녀</span>
