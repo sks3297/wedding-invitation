@@ -190,7 +190,7 @@ body {
 }
 
 .photo-overlay--pink {
-    /* background: linear-gradient(180deg, #f0e6de, #ede2da); */
+    background: linear-gradient(180deg, #f0e6de, #ede2da);
     padding: 40px 0;
 }
 
