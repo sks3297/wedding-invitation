@@ -11,8 +11,8 @@ app = Flask(__name__)
 KAKAO_MAP_API_KEY = '{KAKAO_MAP_API_KEY}' # 프롬투데이 느낌을 위해 키는 꼭 넣어주세요!
 
 # 2. 예식장 좌표 (구글맵이나 카카오맵에서 확인한 위도, 경도)
-WEDDING_LAT = 37.508841
-WEDDING_LNG = 126.889058
+WEDDING_LAT = 37.508535
+WEDDING_LNG = 126.888785
 WEDDING_HALL_FULL_NAME = '더 세인트 6F 그랜드볼룸'
 WEDDING_ADDRESS = '서울특별시 구로구 경인로 662 디큐브시티 6층 그랜드볼룸'
 WEDDING_DATE_OBJ = datetime.date(2026, 5, 2)
