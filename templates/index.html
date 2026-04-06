@@ -347,10 +347,17 @@
             <!-- <div class="section-num">오시는 길</div> -->
             <h2 class="section-eng-title fade-child">LOCATION</h2>
             <p class="loc-name fade-child">{{ data.wedding_hall_full_name }}홀</p>
-            <div id="map" class="map-container"
-                style="display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.8em; text-align: center; padding: 20px;">
-                <div id="map-placeholder">지도를 불러오는 중입니다...<br><span style="font-size: 0.85em; opacity: 0.7;">(5초 이상 지속될
-                        경우 API 키 혹은 도메인 설정을 확인해주세요)</span></div>
+            <div class="map-wrap">
+                <div id="map" class="map-container"
+                    style="display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.8em; text-align: center; padding: 20px;">
+                    <div id="map-placeholder">지도를 불러오는 중입니다...<br><span style="font-size: 0.85em; opacity: 0.7;">(5초 이상
+                            지속될
+                            경우 API 키 혹은 도메인 설정을 확인해주세요)</span></div>
+                </div>
+                <!-- 지도 잠금 버튼 -->
+                <button id="map-lock-btn" class="map-lock-btn locked">
+                    <i class="fas fa-lock"></i> 지도 잠금
+                </button>
             </div>
             <!-- <div class="nav-btns">
                 <a href="https://map.kakao.com/link/to/{{ data.wedding_hall }},{{ data.lat }},{{ data.lng }}"
@@ -671,6 +678,31 @@
 
                     // 마우스 휠 및 모바일 터치(두 손가락) 확대/축소 비활성화 (스크롤 간섭 방지)
                     kmap.setZoomable(false);
+                    // 처음에는 스크롤 간섭 방지를 위해 드래그 비활성화 (완전 잠금)
+                    kmap.setDraggable(false);
+
+                    // 잠금 토글 상태 제어
+                    var mapLockBtn = document.getElementById('map-lock-btn');
+                    var isMapLocked = true;
+                    if (mapLockBtn) {
+                        mapLockBtn.style.display = 'flex'; // 로딩 완료 시점에 보이도록 설정
+                        mapLockBtn.addEventListener('click', function () {
+                            isMapLocked = !isMapLocked;
+                            if (isMapLocked) {
+                                kmap.setZoomable(false);
+                                kmap.setDraggable(false);
+                                mapLockBtn.innerHTML = '<i class="fas fa-lock"></i> 지도 잠금';
+                                mapLockBtn.classList.remove('unlocked');
+                                mapLockBtn.classList.add('locked');
+                            } else {
+                                kmap.setZoomable(true);
+                                kmap.setDraggable(true);
+                                mapLockBtn.innerHTML = '<i class="fas fa-unlock"></i> 지도 이동';
+                                mapLockBtn.classList.remove('locked');
+                                mapLockBtn.classList.add('unlocked');
+                            }
+                        });
+                    }
 
                     // 대신 화면 우측에 확대/축소 컨트롤(버튼)을 추가
                     var zoomControl = new kakao.maps.ZoomControl();
