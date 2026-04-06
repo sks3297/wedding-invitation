@@ -19,7 +19,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Nanum+Myeongjo:wght@400;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=1.11">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=1.12">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
@@ -346,7 +346,7 @@
         <section class="section section--white fade-item">
             <!-- <div class="section-num">오시는 길</div> -->
             <h2 class="section-eng-title fade-child">LOCATION</h2>
-            <p class="loc-name fade-child">{{ data.wedding_hall }}</p>
+            <p class="loc-name fade-child">{{ data.wedding_hall_full_name }}홀</p>
             <div id="map" class="map-container"
                 style="display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.8em; text-align: center; padding: 20px;">
                 <div id="map-placeholder">지도를 불러오는 중입니다...<br><span style="font-size: 0.85em; opacity: 0.7;">(5초 이상 지속될
@@ -668,6 +668,13 @@
                         level: 3
                     };
                     kmap = new kakao.maps.Map(mapEl, opts);
+
+                    // 마우스 휠 및 모바일 터치(두 손가락) 확대/축소 비활성화 (스크롤 간섭 방지)
+                    kmap.setZoomable(false);
+
+                    // 대신 화면 우측에 확대/축소 컨트롤(버튼)을 추가
+                    var zoomControl = new kakao.maps.ZoomControl();
+                    kmap.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
                     var marker = new kakao.maps.Marker({
                         position: mapCenter
