@@ -669,12 +669,19 @@
                     var mapEl = document.getElementById('map');
                     if (!mapEl) return;
 
-                    mapCenter = new kakao.maps.LatLng(WEDDING_LAT, WEDDING_LNG);
+                    var markerPosition = new kakao.maps.LatLng(WEDDING_LAT, WEDDING_LNG);
+                    // 신도림역(동쪽)이 화면 우측에 잘 보이도록 지도의 중심을 살짝 동쪽으로 이동 (Lng +0.0016)
+                    mapCenter = new kakao.maps.LatLng(WEDDING_LAT, WEDDING_LNG + 0.0016);
                     var opts = {
                         center: mapCenter,
                         level: 3
                     };
                     kmap = new kakao.maps.Map(mapEl, opts);
+
+                    var marker = new kakao.maps.Marker({
+                        position: markerPosition
+                    });
+                    marker.setMap(kmap);
 
                     // 마우스 휠 및 모바일 터치(두 손가락) 확대/축소 비활성화 (스크롤 간섭 방지)
                     kmap.setZoomable(false);
@@ -707,11 +714,6 @@
                     // 대신 화면 우측에 확대/축소 컨트롤(버튼)을 추가
                     var zoomControl = new kakao.maps.ZoomControl();
                     kmap.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-
-                    var marker = new kakao.maps.Marker({
-                        position: mapCenter
-                    });
-                    marker.setMap(kmap);
 
                     mapLoaded = true;
                     var placeholder = document.getElementById('map-placeholder');
