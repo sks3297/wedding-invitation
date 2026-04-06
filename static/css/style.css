@@ -696,7 +696,7 @@ body {
     background: transparent;
     font-family: 'Noto Serif KR', serif;
     font-size: .78em;
-    color: #bbb;
+    color: #999;
     cursor: pointer;
     text-align: center;
     border-bottom: 2px solid transparent;
@@ -709,7 +709,7 @@ body {
     display: block;
     font-size: 1.25em;
     margin-bottom: 4px;
-    color: #ddd;
+    color: #bbb;
     transition: color .25s;
 }
 
@@ -752,9 +752,9 @@ body {
 
 .transport-desc {
     font-size: .8em;
-    color: #888;
+    color: #4a4a4a;
     line-height: 1.7;
-    font-weight: 300;
+    font-weight: 400;
     padding: 10px 12px;
     background: rgba(255, 255, 255, .6);
     border-radius: 8px;
@@ -786,7 +786,7 @@ body {
 }
 
 .route-text {
-    color: #777;
+    color: #555;
     font-weight: 300;
     word-break: keep-all;
     line-height: 1.8;
