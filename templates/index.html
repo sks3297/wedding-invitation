@@ -19,7 +19,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Nanum+Myeongjo:wght@400;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=1.12">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=1.13">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
@@ -671,7 +671,7 @@
 
                     var markerPosition = new kakao.maps.LatLng(WEDDING_LAT, WEDDING_LNG);
                     // 신도림역(동쪽)이 화면 우측에 잘 보이도록 지도의 중심을 살짝 동쪽으로 이동 (Lng +0.0016)
-                    mapCenter = new kakao.maps.LatLng(WEDDING_LAT, WEDDING_LNG + 0.0016);
+                    mapCenter = new kakao.maps.LatLng(WEDDING_LAT, WEDDING_LNG + 0.0015);
                     var opts = {
                         center: mapCenter,
                         level: 3
