@@ -630,6 +630,17 @@ body {
     border-color: #c4908c;
 }
 
+/* 지도 잠금 상태일 때 지도가 스크롤을 방해하지 않도록 처리 */
+.map-wrap.locked .map-container {
+    pointer-events: none;
+    touch-action: auto;
+}
+
+/* 버튼은 클릭이 가능해야 하므로 pointer-events 복원 */
+.map-lock-btn {
+    pointer-events: auto;
+}
+
 .nav-btns {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
