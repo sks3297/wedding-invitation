@@ -19,7 +19,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Nanum+Myeongjo:wght@400;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=1.15">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=1.14">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
@@ -377,10 +377,10 @@
             <!-- 교통편 안내 탭 -->
             <div class="transport-wrap">
                 <div class="transport-tabs">
-                    <button class="transport-tab" data-tab="subway">
+                    <button class="transport-tab active" data-tab="subway">
                         <i class="fas fa-subway"></i> 지하철
                     </button>
-                    <button class="transport-tab active" data-tab="car">
+                    <button class="transport-tab" data-tab="car">
                         <i class="fas fa-car"></i> 승용차
                     </button>
                     <button class="transport-tab" data-tab="bus">
