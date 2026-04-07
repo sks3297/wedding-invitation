@@ -30,7 +30,8 @@ body {
     line-height: 2.0;
     word-break: keep-all;
     -webkit-font-smoothing: antialiased;
-    touch-action: pan-y;
+    /* Allow panning and pinch-to-zoom in all directions */
+    touch-action: manipulation;
     -webkit-text-size-adjust: none;
 }
 
@@ -44,7 +45,9 @@ body {
     /* Fallback for browsers that don't support dvh but support JS-based --vh */
     min-height: calc(var(--vh, 1vh) * 100);
     position: relative;
-    overflow: hidden;
+    /* Prevent horizontal scroll from animations while allowing zoomed panning */
+    overflow-x: clip;
+    overflow-y: visible;
     box-shadow: 0 0 60px rgba(0, 0, 0, .05);
     /* Disable long-press popup on the whole app area */
     -webkit-touch-callout: none;

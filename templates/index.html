@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta name="viewport" id="viewport-meta"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.7, shrink-to-fit=no">
     <script>
         // Set custom VH and lock hero height to prevent "bounce" in mobile browsers
         function adjustLayout() {
@@ -39,6 +39,19 @@
                 e.preventDefault();
             }
         }, false);
+
+        // Dynamic Zoom Toggle
+        function toggleZoom(allow) {
+            const meta = document.getElementById('viewport-meta');
+            if (meta) {
+                if (allow) {
+                    meta.content = "width=device-width, initial-scale=1.0, maximum-scale=1.7, shrink-to-fit=no";
+                } else {
+                    meta.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no";
+                }
+            }
+        }
+        window.toggleZoom = toggleZoom;
     </script>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -54,7 +67,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Nanum+Myeongjo:wght@400;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=1.17">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=1.18">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
@@ -615,9 +628,16 @@
         // Use passive: false to allow preventDefault()
         const preventOptions = { passive: false };
 
+        function isModalActive() {
+            const gModal = document.getElementById('gallery-modal');
+            return gModal && gModal.classList.contains('active');
+        }
+
         // 1. Double-tap zoom prevention (for older iOS Safari)
         let lastTouchEnd = 0;
         document.addEventListener('touchend', function (event) {
+            if (!isModalActive()) return; // Allow zoom if modal is not active
+
             const now = (new Date()).getTime();
             if (now - lastTouchEnd <= 300) {
                 event.preventDefault();
@@ -627,25 +647,29 @@
 
         // 2. Pinch-zoom prevention (Initial touch)
         document.addEventListener('touchstart', function (event) {
-            if (event.touches.length > 1) {
+            if (isModalActive() && event.touches.length > 1) {
                 event.preventDefault();
             }
         }, preventOptions);
 
         // 3. Pinch-zoom prevention (Movement) - CRITICAL for scroll-time zoom
         document.addEventListener('touchmove', function (event) {
-            if (event.touches.length > 1) {
+            if (isModalActive() && event.touches.length > 1) {
                 event.preventDefault();
             }
         }, preventOptions);
 
         // 4. iOS Gesture prevention (Pinch/Rotate)
-        document.addEventListener('gesturestart', function (event) { event.preventDefault(); }, preventOptions);
-        document.addEventListener('gesturechange', function (event) { event.preventDefault(); }, preventOptions);
+        document.addEventListener('gesturestart', function (event) {
+            if (isModalActive()) event.preventDefault();
+        }, preventOptions);
+        document.addEventListener('gesturechange', function (event) {
+            if (isModalActive()) event.preventDefault();
+        }, preventOptions);
 
         // 5. Desktop Trackpad/Mouse zoom prevention (Ctrl + Wheel)
         document.addEventListener('wheel', function (event) {
-            if (event.ctrlKey) {
+            if (isModalActive() && event.ctrlKey) {
                 event.preventDefault();
             }
         }, preventOptions);
@@ -853,6 +877,10 @@
             if (!gModal.classList.contains('active')) return;
             gModal.classList.remove('active');
             document.body.style.overflow = '';
+
+            // Re-enable zooming when modal closes
+            if (window.toggleZoom) window.toggleZoom(true);
+
             // If the user manually clicked close, we need to go back in history
             if (pushHistory !== false && history.state && history.state.modal === 'gallery') {
                 history.back();
@@ -867,6 +895,10 @@
                 showSlide(currentIdx);
                 gModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
+
+                // Disable zooming when modal opens
+                if (window.toggleZoom) window.toggleZoom(false);
+
                 // Push state for back button support
                 history.pushState({ modal: 'gallery' }, '');
             });
