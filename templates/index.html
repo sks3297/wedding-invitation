@@ -5,6 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <script>
+        // Set custom VH and lock hero height to prevent "bounce" in mobile browsers
+        function adjustLayout() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+            // Lock Hero height to prevent resizing when URL bar hides/shows
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                // If it's a mobile viewport, lock it to the current window height
+                if (window.innerWidth <= 480) {
+                    hero.style.height = window.innerHeight + 'px';
+                } else {
+                    hero.style.height = ''; // Reset for desktop
+                }
+            }
+        }
+
+        window.addEventListener('load', adjustLayout);
+        // Only recalculate on orientation change or major resize (not for small URL bar shifts)
+        let lastWidth = window.innerWidth;
+        window.addEventListener('resize', function () {
+            if (window.innerWidth !== lastWidth) {
+                lastWidth = window.innerWidth;
+                adjustLayout();
+            }
+        });
+
+        // Block long-press image save popup
+        window.addEventListener('contextmenu', function (e) {
+            if (e.target.tagName === 'IMG' || e.target.classList.contains('hero') || e.target.classList.contains('overlay-bg-img')) {
+                e.preventDefault();
+            }
+        }, false);
+    </script>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -19,7 +54,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Nanum+Myeongjo:wght@400;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=1.16">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=1.17">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
@@ -824,8 +859,10 @@
             }
         }
 
-        allImgs.forEach(function (img, i) {
-            img.addEventListener('click', function () {
+        var galleryWraps = document.querySelectorAll('.gallery-img-wrap');
+        galleryWraps.forEach(function (wrap, i) {
+            wrap.style.cursor = 'pointer'; // Ensure it looks clickable
+            wrap.addEventListener('click', function () {
                 currentIdx = i;
                 showSlide(currentIdx);
                 gModal.classList.add('active');
@@ -860,16 +897,16 @@
         var touchStartX = 0;
         var isMultiTouch = false;
 
-        mImg.addEventListener('touchstart', function (e) {
+        gModal.addEventListener('touchstart', function (e) {
             isMultiTouch = e.touches.length > 1;
             touchStartX = e.changedTouches[0].screenX;
         }, false);
 
-        mImg.addEventListener('touchmove', function (e) {
+        gModal.addEventListener('touchmove', function (e) {
             if (e.touches.length > 1) isMultiTouch = true;
         }, false);
 
-        mImg.addEventListener('touchend', function (e) {
+        gModal.addEventListener('touchend', function (e) {
             if (isMultiTouch) return; // Ignore if it was a multi-touch/zoom gesture
 
             var diff = touchStartX - e.changedTouches[0].screenX;

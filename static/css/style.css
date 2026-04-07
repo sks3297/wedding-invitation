@@ -15,6 +15,11 @@ img {
     -ms-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
+    /* Prevent browser from recognizing image for long-press save */
+    pointer-events: none;
+    /* Prevent blue highlight or context menu trigger */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html,
@@ -35,9 +40,16 @@ body {
     margin: 0 auto;
     background: #faf9f7;
     min-height: 100vh;
+    min-height: 100dvh;
+    /* Fallback for browsers that don't support dvh but support JS-based --vh */
+    min-height: calc(var(--vh, 1vh) * 100);
     position: relative;
     overflow: hidden;
     box-shadow: 0 0 60px rgba(0, 0, 0, .05);
+    /* Disable long-press popup on the whole app area */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 /* =========================================
@@ -66,6 +78,10 @@ body {
 .hero {
     width: 100%;
     height: 100vh;
+    /* Basic fallback */
+    height: 100svh;
+    /* Modern mobile fallback */
+    max-height: 820px;
     min-height: 600px;
     background-size: cover;
     background-position: center;
