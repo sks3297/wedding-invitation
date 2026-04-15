@@ -526,6 +526,16 @@ body {
     margin-top: 24px;
 }
 
+.flower-notice {
+    font-size: .82em;
+    color: #7a6e6c;
+    font-weight: 400;
+    letter-spacing: .5px;
+    margin-top: 40px;
+    line-height: 1.8;
+    white-space: nowrap;
+}
+
 /* Countdown Timer */
 .countdown-wrap {
     display: flex;
@@ -827,9 +837,14 @@ body {
 /* =========================================
    06. Gift / Accounts
 ========================================= */
+#gift-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
 .gift-sub {
     font-size: .82em;
-    color: #999;
+    color: #666;
     font-weight: 300;
     margin-bottom: 30px;
     letter-spacing: 1px;
@@ -966,7 +981,7 @@ body {
 
 .acc-c-bank {
     font-size: 0.85em;
-    color: #999;
+    color: #666;
     margin-bottom: 6px;
 }
 
