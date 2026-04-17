@@ -296,6 +296,16 @@ body {
     text-transform: uppercase;
 }
 
+.section-kor-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .85em;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
+    font-weight: 400;
+    color: #181616;
+    text-transform: uppercase;
+}
+
 /* Decorative divider between sections */
 .section-divider {
     width: 1px;
@@ -516,6 +526,19 @@ body {
     font-weight: 300;
     letter-spacing: 1px;
     margin-top: 10px;
+}
+
+.ceremony-notice {
+    font-size: .78em;
+    color: #8a7a78;
+    font-weight: 300;
+    line-height: 1.9;
+    letter-spacing: .3px;
+    margin-top: 18px;
+    max-width: 290px;
+    margin-left: auto;
+    margin-right: auto;
+    word-break: keep-all;
 }
 
 .dday-line {
